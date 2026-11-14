@@ -7,6 +7,16 @@
  */
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-  "https://elisha-ibeabuchi.vercel.app";
+  "https://elisha-portfolio-green.vercel.app";
 
 export const SITE_NAME = "Elisha Ibeabuchi";
+
+/**
+ * Google Search Console verification code.
+ *
+ * To get it: Search Console → add a property of type "URL prefix" with the
+ * value https://elisha-portfolio-green.vercel.app → pick the "HTML tag"
+ * method → copy ONLY the string inside content="..." and paste it between
+ * the quotes below. Leave it empty and no tag is rendered.
+ */
+export const GOOGLE_SITE_VERIFICATION = "";

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { SITE_URL, SITE_NAME } from "@/lib/site";
+import { SITE_URL, SITE_NAME, GOOGLE_SITE_VERIFICATION } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -71,6 +71,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  ...(GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 export const viewport: Viewport = {
