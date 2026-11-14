@@ -73,6 +73,7 @@ export default function Home() {
               </Link>
               <a
                 href={profile.resumeHref}
+                download
                 className="inline-flex items-center gap-2 rounded-xl border border-border bg-white/[0.03] px-5 py-3 text-sm font-semibold transition-colors hover:border-white/20 hover:bg-white/[0.06]"
               >
                 <Icon name="download" className="size-4" />

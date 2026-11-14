@@ -15,7 +15,7 @@ export const profile = {
   whatsappHref: "https://wa.me/2348105138217",
   location: "Enugu State, Nigeria",
   availability: "24/7 — Always Open",
-  resumeHref: "#",
+  resumeHref: "/Elisha_Ibeabuchi_Resume.pdf",
 } as const;
 
 export const stats = [
