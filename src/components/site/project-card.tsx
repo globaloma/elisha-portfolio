@@ -9,7 +9,6 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <article
       className="group relative overflow-hidden rounded-3xl border border-border bg-[color:var(--surface)] p-5 transition-colors hover:border-[color:color-mix(in_oklab,var(--brand)_40%,var(--border))] sm:p-6"
-      style={{ ["--brand" as string]: project.brand }}
     >
       <div className="grid items-center gap-6 md:grid-cols-[minmax(0,0.95fr)_1fr]">
         {/* Visual — real exported design image */}
@@ -31,10 +30,6 @@ export function ProjectCard({ project }: { project: Project }) {
 
         {/* Text */}
         <div>
-          <div className="mb-3 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-brand">
-            <span className="h-1.5 w-1.5 rounded-full" style={{ background: project.brand }} />
-            {project.category}
-          </div>
           <h3 className="font-heading text-2xl font-semibold tracking-tight">{project.name}</h3>
           <p className="mt-3 max-w-md text-[15px] leading-relaxed text-muted-foreground">{project.description}</p>
 
@@ -44,19 +39,21 @@ export function ProjectCard({ project }: { project: Project }) {
             ))}
           </div>
 
-          <Link
-            href={project.cta.href}
-            {...(isExternal
-              ? { target: "_blank", rel: "noopener noreferrer" }
-              : {})}
-            className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-brand"
-          >
-            {project.cta.label}
-            <Icon
-              name={project.cta.label.includes("Live") ? "external-link" : "arrow-right"}
-              className={cn("size-4 transition-transform group-hover:translate-x-0.5")}
-            />
-          </Link>
+          <div className="mt-6 flex justify-end">
+            <Link
+              href={project.cta.href}
+              {...(isExternal
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-brand transition-opacity hover:opacity-80"
+            >
+              {project.cta.label}
+              <Icon
+                name={project.cta.label.includes("Live") ? "external-link" : "arrow-right"}
+                className={cn("size-4 transition-transform group-hover:translate-x-0.5")}
+              />
+            </Link>
+          </div>
         </div>
       </div>
     </article>

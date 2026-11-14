@@ -13,6 +13,8 @@
 
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
+  --color-brand-bright: var(--brand-bright);
+  --color-brand-bright-foreground: var(--brand-bright-foreground);
 
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
@@ -41,42 +43,46 @@
   --radius-2xl: calc(var(--radius) + 8px);
 }
 
-/* ---- Portfolio dark palette (always dark) ---- */
+/* ---- Portfolio light palette (warm cream + teal) ---- */
 :root {
   --radius: 0.9rem;
 
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
 
-  --background: #0b0b0c;
-  --foreground: #f3f4f3;
+  --background: #f5f0e8;
+  --foreground: #1b1714;
 
-  --surface: #121214;
-  --surface-2: #17181b;
+  --surface: #faf6ef;
+  --surface-2: #ece6dc;
 
-  --card: #121214;
-  --card-foreground: #f3f4f3;
-  --popover: #121214;
-  --popover-foreground: #f3f4f3;
+  --card: #faf6ef;
+  --card-foreground: #1b1714;
+  --popover: #faf6ef;
+  --popover-foreground: #1b1714;
 
-  --brand: #22d3ee;
-  --brand-foreground: #04181c;
+  /* BRAND WHITE BG — teal for text/icons/dots on light surfaces */
+  --brand: #0c6680;
+  --brand-foreground: #ffffff;
+  /* BRAND COLOR — bright cyan for button fills + stat numbers */
+  --brand-bright: #00e5ff;
+  --brand-bright-foreground: #0d1117;
 
-  --primary: #22d3ee;
-  --primary-foreground: #04181c;
-  --secondary: #17181b;
-  --secondary-foreground: #e7e9e8;
+  --primary: #0c6680;
+  --primary-foreground: #ffffff;
+  --secondary: #ece6dc;
+  --secondary-foreground: #2a2520;
 
-  --muted: #17181b;
-  --muted-foreground: #9aa0a6;
+  --muted: #ece6dc;
+  --muted-foreground: #6c655b;
 
-  --accent: #17181b;
-  --accent-foreground: #f3f4f3;
+  --accent: #ece6dc;
+  --accent-foreground: #1b1714;
 
-  --destructive: #ef4444;
+  --destructive: #dc2626;
 
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.12);
-  --ring: #22d3ee;
+  --border: rgba(27, 23, 20, 0.1);
+  --input: rgba(27, 23, 20, 0.16);
+  --ring: #0c6680;
 }
 
 /* brand overrides supplied per case-study via inline style (--brand / --brand-soft) */
@@ -92,17 +98,18 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    /* White hero at the top of the page fading into the warm cream body */
     background-image:
-      radial-gradient(60rem 60rem at 85% -10%, color-mix(in oklab, var(--brand) 7%, transparent), transparent 60%),
-      radial-gradient(50rem 50rem at -10% 20%, rgba(255, 255, 255, 0.03), transparent 55%);
-    background-attachment: fixed;
+      linear-gradient(180deg, #ffffff 0, #ffffff 19rem, var(--background) 46rem),
+      radial-gradient(55rem 55rem at 88% 2rem, color-mix(in oklab, var(--brand) 6%, transparent), transparent 60%);
+    background-repeat: no-repeat;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-heading), Georgia, serif;
   }
   ::selection {
-    background: color-mix(in oklab, var(--brand) 35%, transparent);
-    color: #fff;
+    background: color-mix(in oklab, var(--brand) 22%, transparent);
+    color: var(--foreground);
   }
 }
 
@@ -115,7 +122,7 @@
     border: 1px solid var(--border);
   }
   .brand-grad-text {
-    background: linear-gradient(120deg, var(--brand), color-mix(in oklab, var(--brand) 55%, #ffffff));
+    background: linear-gradient(120deg, var(--brand), #11a0b8);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -131,8 +138,8 @@
 /* thin, subtle scrollbar */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb {
-  background: #2a2b2f;
+  background: #d8d2c7;
   border-radius: 999px;
   border: 2px solid var(--background);
 }
-::-webkit-scrollbar-thumb:hover { background: #3a3b40; }
+::-webkit-scrollbar-thumb:hover { background: #c4bdb0; }

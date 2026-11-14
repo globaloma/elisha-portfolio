@@ -80,7 +80,7 @@ export function Sidebar() {
               "group relative flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium transition-colors",
               act
                 ? "text-foreground"
-                : "text-muted-foreground hover:bg-white/[0.04] hover:text-foreground"
+                : "text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
             )}
             style={act ? { background: "color-mix(in oklab, var(--brand) 14%, transparent)" } : undefined}
             aria-current={act ? "page" : undefined}
@@ -137,7 +137,7 @@ export function Sidebar() {
           type="button"
           aria-label="Open menu"
           onClick={() => setOpen((v) => !v)}
-          className="grid h-10 w-10 place-items-center rounded-xl border border-border bg-white/5 text-foreground"
+          className="grid h-10 w-10 place-items-center rounded-xl border border-border bg-foreground/[0.06] text-foreground"
         >
           <Icon name={open ? "x" : "menu"} className="size-5" />
         </button>

@@ -19,6 +19,29 @@ import {
   currentlyBuilding,
 } from "@/lib/data";
 
+// Phrases the design highlights in teal within the About paragraphs.
+const ABOUT_HIGHLIGHTS = [
+  "Elisha Ibeabuchi",
+  "UI/UX design, frontend development and mobile app experiences",
+  "Tranx",
+];
+
+function highlight(text: string) {
+  const pattern = new RegExp(
+    `(${ABOUT_HIGHLIGHTS.map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`,
+    "g",
+  );
+  return text.split(pattern).map((part, i) =>
+    ABOUT_HIGHLIGHTS.includes(part) ? (
+      <span key={i} className="font-medium text-brand">
+        {part}
+      </span>
+    ) : (
+      <span key={i}>{part}</span>
+    ),
+  );
+}
+
 export default function Home() {
   const featured = projects.filter((p) => p.featured);
 
@@ -28,14 +51,14 @@ export default function Home() {
       <section id="home" className="relative scroll-mt-24 pt-2">
         <span
           aria-hidden
-          className="pointer-events-none absolute -top-6 right-0 select-none font-heading text-[22vw] font-black leading-none text-white/[0.03] lg:text-[12rem]"
+          className="pointer-events-none absolute -top-6 right-0 select-none font-heading text-[22vw] font-black leading-none text-foreground/[0.045] lg:text-[12rem]"
         >
           ELISHA
         </span>
 
         <div className="relative grid gap-10 lg:grid-cols-[1fr_auto] lg:items-start">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/[0.03] px-3.5 py-1.5 text-xs font-medium text-muted-foreground">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-foreground/[0.03] px-3.5 py-1.5 text-xs font-medium text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full" style={{ background: "var(--brand)" }} />
               {profile.tagline}
             </span>
@@ -66,7 +89,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 rounded-xl border border-border bg-white/[0.03] px-5 py-3 text-sm font-semibold transition-colors hover:border-white/20 hover:bg-white/[0.06]"
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-foreground/[0.03] px-5 py-3 text-sm font-semibold transition-colors hover:border-foreground/20 hover:bg-foreground/[0.06]"
               >
                 <Icon name="layout-grid" className="size-4" />
                 Projects
@@ -74,7 +97,7 @@ export default function Home() {
               <a
                 href={profile.resumeHref}
                 download
-                className="inline-flex items-center gap-2 rounded-xl border border-border bg-white/[0.03] px-5 py-3 text-sm font-semibold transition-colors hover:border-white/20 hover:bg-white/[0.06]"
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-foreground/[0.03] px-5 py-3 text-sm font-semibold transition-colors hover:border-foreground/20 hover:bg-foreground/[0.06]"
               >
                 <Icon name="download" className="size-4" />
                 Download Resume
@@ -87,10 +110,10 @@ export default function Home() {
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="flex-1 rounded-2xl border border-border bg-[color:var(--surface)] px-5 py-4 text-center lg:w-36 lg:text-left"
+                className="flex-1 rounded-2xl bg-[#17191a] px-5 py-4 text-center shadow-sm lg:w-36 lg:text-left"
               >
-                <div className="font-heading text-3xl font-bold brand-grad-text">{s.value}</div>
-                <div className="mt-1 text-xs text-muted-foreground">{s.label}</div>
+                <div className="font-heading text-3xl font-bold text-[color:var(--brand-bright)]">{s.value}</div>
+                <div className="mt-1 text-xs text-white/55">{s.label}</div>
               </div>
             ))}
           </div>
@@ -104,20 +127,15 @@ export default function Home() {
           <div className="rounded-3xl border border-border bg-[color:var(--surface)] p-6 sm:p-8">
             <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
               {about.paragraphs.map((p, i) => (
-                <p key={i}>{p}</p>
+                <p key={i}>{highlight(p)}</p>
               ))}
             </div>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+          <div className="flex flex-col gap-2.5">
             {about.facts.map((f) => {
               const inner = (
                 <>
-                  <span
-                    className="grid size-9 shrink-0 place-items-center rounded-lg"
-                    style={{ background: "color-mix(in oklab, var(--brand) 14%, var(--surface-2))" }}
-                  >
-                    <Icon name={f.icon} className="size-4 text-brand" />
-                  </span>
+                  <Icon name={f.icon} className="size-5 shrink-0 text-brand" />
                   <span className="text-sm font-medium">{f.label}</span>
                 </>
               );
@@ -125,14 +143,14 @@ export default function Home() {
                 <a
                   key={f.label}
                   href={f.href}
-                  className="flex items-center gap-3 rounded-xl border border-border bg-[color:var(--surface)] px-4 py-3 transition-colors hover:border-white/20"
+                  className="flex items-center gap-3 rounded-xl bg-[color:var(--surface-2)] px-4 py-3.5 transition-colors hover:brightness-95"
                 >
                   {inner}
                 </a>
               ) : (
                 <div
                   key={f.label}
-                  className="flex items-center gap-3 rounded-xl border border-border bg-[color:var(--surface)] px-4 py-3"
+                  className="flex items-center gap-3 rounded-xl bg-[color:var(--surface-2)] px-4 py-3.5"
                 >
                   {inner}
                 </div>
@@ -177,6 +195,7 @@ export default function Home() {
           <p className="text-sm text-muted-foreground">
             Also designed{" "}
             <span className="font-medium text-foreground">Bookmaker</span>,{" "}
+            <span className="font-medium text-foreground">Tesmeg</span>,{" "}
             <span className="font-medium text-foreground">LocalBite</span>,{" "}
             <span className="font-medium text-foreground">VoltPass</span>
             <span className="text-muted-foreground"> + more</span>
@@ -220,7 +239,7 @@ export default function Home() {
               <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
                 {job.points.map((pt) => (
                   <li key={pt} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                    <Icon name="check" className="mt-0.5 size-4 shrink-0 text-brand" />
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: "var(--brand)" }} />
                     <span>{pt}</span>
                   </li>
                 ))}
@@ -233,23 +252,24 @@ export default function Home() {
       {/* ============================== CAPABILITIES (SKILLS) ============================== */}
       <section id="skills" className="mt-24 scroll-mt-24">
         <SectionHeading icon="layers" title="My Capabilities" />
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
-          {capabilities.map((c) => (
-            <div key={c.title} className="rounded-3xl border border-border bg-[color:var(--surface)] p-6">
-              <div className="flex items-baseline justify-between">
-                <h3 className="font-heading text-lg font-semibold">{c.title}</h3>
-                <span className="font-heading text-sm text-brand">({c.index})</span>
+        <div className="mt-8 rounded-3xl border border-border bg-[color:var(--surface)] p-6 sm:p-10">
+          <div className="divide-y divide-border">
+            {capabilities.map((c) => (
+              <div key={c.title} className="py-8 first:pt-0 last:pb-0">
+                <div className="relative mb-5 flex items-center justify-center">
+                  <span className="absolute left-0 font-heading text-sm text-muted-foreground">
+                    ({c.index})
+                  </span>
+                  <h3 className="font-heading text-xl font-semibold">{c.title}</h3>
+                </div>
+                <ul className="space-y-2 text-right text-sm text-muted-foreground">
+                  {c.items.map((it) => (
+                    <li key={it}>{it}</li>
+                  ))}
+                </ul>
               </div>
-              <ul className="mt-4 space-y-2.5">
-                {c.items.map((it) => (
-                  <li key={it} className="flex items-center gap-2.5 border-b border-border/60 pb-2.5 text-sm text-muted-foreground last:border-0 last:pb-0">
-                    <span className="h-1 w-1 rounded-full" style={{ background: "var(--brand)" }} />
-                    {it}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Tools */}
@@ -259,7 +279,7 @@ export default function Home() {
             {tools.map((t) => (
               <div
                 key={t}
-                className="flex items-center gap-3 rounded-xl border border-border bg-[color:var(--surface)] px-4 py-3.5 text-sm font-medium transition-colors hover:border-white/20"
+                className="flex items-center gap-3 rounded-xl border border-border bg-[color:var(--surface)] px-4 py-3.5 text-sm font-medium transition-colors hover:border-foreground/20"
               >
                 <span className="h-2 w-2 rounded-full" style={{ background: "var(--brand)" }} />
                 {t}
@@ -271,7 +291,7 @@ export default function Home() {
         {/* Education */}
         <div className="mt-10">
           <SectionHeading icon="graduation-cap" title="Education & Certs" />
-          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <div className="mt-6 grid gap-3">
             {education.map((e) => (
               <div
                 key={e.title}
@@ -297,10 +317,7 @@ export default function Home() {
       {/* ============================== CURRENTLY BUILDING ============================== */}
       <section className="mt-24">
         <SectionHeading icon="hammer" title="Currently Building" />
-        <div
-          className="mt-8 overflow-hidden rounded-3xl border border-border bg-[color:var(--surface)] p-6 sm:p-8"
-          style={{ ["--brand" as string]: currentlyBuilding.brand }}
-        >
+        <div className="mt-8 overflow-hidden rounded-3xl border border-border bg-[color:var(--surface)] p-6 sm:p-8">
           <div className="grid items-center gap-8 md:grid-cols-[auto_1fr]">
             <div
               className="flex items-center justify-center overflow-hidden rounded-2xl border border-border md:w-[320px]"
@@ -320,9 +337,8 @@ export default function Home() {
                 <h3 className="font-heading text-2xl font-semibold">{currentlyBuilding.name}</h3>
                 <span
                   className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold"
-                  style={{ background: "color-mix(in oklab, var(--brand) 18%, transparent)", color: "var(--brand)" }}
+                  style={{ background: "color-mix(in oklab, var(--brand) 16%, var(--surface-2))", color: "var(--brand)" }}
                 >
-                  <span className="h-1.5 w-1.5 animate-pulse rounded-full" style={{ background: "var(--brand)" }} />
                   {currentlyBuilding.status}
                 </span>
               </div>
@@ -331,8 +347,8 @@ export default function Home() {
                 {currentlyBuilding.description}
               </p>
 
-              <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Currently working on
+              <p className="mt-5 font-heading text-[15px] font-semibold text-foreground">
+                Currently working on:
               </p>
               <ul className="mt-2 space-y-2">
                 {currentlyBuilding.workingOn.map((w) => (
@@ -349,13 +365,15 @@ export default function Home() {
                 ))}
               </div>
 
-              <Link
-                href={currentlyBuilding.href}
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:text-brand"
-              >
-                View Project
-                <Icon name="arrow-right" className="size-4" />
-              </Link>
+              <div className="mt-6 flex justify-end">
+                <Link
+                  href={currentlyBuilding.href}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-brand transition-opacity hover:opacity-80"
+                >
+                  View Project
+                  <Icon name="arrow-right" className="size-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

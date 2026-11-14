@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Geist, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import {
   SITE_URL,
@@ -8,7 +8,7 @@ import {
   BING_SITE_VERIFICATION,
 } from "@/lib/site";
 
-const inter = Inter({
+const geist = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -85,8 +85,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#22d3ee",
-  colorScheme: "dark",
+  themeColor: "#f5f0e8",
+  colorScheme: "light",
 };
 
 const jsonLd = {
@@ -131,7 +131,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`dark ${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${geist.variable} ${playfair.variable}`}>
       <body className="antialiased">
         <script
           type="application/ld+json"

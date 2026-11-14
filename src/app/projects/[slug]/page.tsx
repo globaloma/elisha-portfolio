@@ -101,8 +101,9 @@ export default async function CaseStudyPage({
   const nextCase = caseStudies[cs.next];
 
   return (
-    <div style={{ ["--brand" as string]: cs.brand }}>
-      <Shell>
+    <Shell>
+      {/* case accent is scoped to the case content only — sidebar, contact and footer stay on the global teal */}
+      <div style={{ ["--brand" as string]: cs.brand }}>
         {/* back */}
         <Link
           href="/projects"
@@ -304,9 +305,10 @@ export default async function CaseStudyPage({
           </section>
         )}
 
-        <ContactSection />
-        <Footer />
-      </Shell>
-    </div>
+      </div>
+
+      <ContactSection />
+      <Footer />
+    </Shell>
   );
 }

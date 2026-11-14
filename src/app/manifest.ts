@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Portfolio of Elisha Ibeabuchi — UI/UX designer, mobile app developer and Founder & CEO of Crib.",
     start_url: "/",
     display: "standalone",
-    background_color: "#0a0c0b",
-    theme_color: "#22d3ee",
+    background_color: "#f5f0e8",
+    theme_color: "#0c6680",
     icons: [
       {
         src: "/icon.svg",
