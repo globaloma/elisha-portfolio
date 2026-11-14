@@ -1,0 +1,138 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-heading);
+
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+/* ---- Portfolio dark palette (always dark) ---- */
+:root {
+  --radius: 0.9rem;
+
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+
+  --background: #0b0b0c;
+  --foreground: #f3f4f3;
+
+  --surface: #121214;
+  --surface-2: #17181b;
+
+  --card: #121214;
+  --card-foreground: #f3f4f3;
+  --popover: #121214;
+  --popover-foreground: #f3f4f3;
+
+  --brand: #22d3ee;
+  --brand-foreground: #04181c;
+
+  --primary: #22d3ee;
+  --primary-foreground: #04181c;
+  --secondary: #17181b;
+  --secondary-foreground: #e7e9e8;
+
+  --muted: #17181b;
+  --muted-foreground: #9aa0a6;
+
+  --accent: #17181b;
+  --accent-foreground: #f3f4f3;
+
+  --destructive: #ef4444;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #22d3ee;
+}
+
+/* brand overrides supplied per case-study via inline style (--brand / --brand-soft) */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    scroll-padding-top: 2rem;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image:
+      radial-gradient(60rem 60rem at 85% -10%, color-mix(in oklab, var(--brand) 7%, transparent), transparent 60%),
+      radial-gradient(50rem 50rem at -10% 20%, rgba(255, 255, 255, 0.03), transparent 55%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading), Georgia, serif;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--brand) 35%, transparent);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading), Georgia, serif;
+  }
+  .card-surface {
+    background: linear-gradient(180deg, color-mix(in oklab, var(--surface) 92%, #fff 1%), var(--surface));
+    border: 1px solid var(--border);
+  }
+  .brand-grad-text {
+    background: linear-gradient(120deg, var(--brand), color-mix(in oklab, var(--brand) 55%, #ffffff));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .ring-brand-soft {
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--brand) 30%, transparent),
+      0 20px 60px -25px color-mix(in oklab, var(--brand) 40%, transparent);
+  }
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* thin, subtle scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb {
+  background: #2a2b2f;
+  border-radius: 999px;
+  border: 2px solid var(--background);
+}
+::-webkit-scrollbar-thumb:hover { background: #3a3b40; }
