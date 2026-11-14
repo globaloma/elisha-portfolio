@@ -20,4 +20,4 @@ export const SITE_NAME = "Elisha Ibeabuchi";
  * the quotes below. Leave it empty and no tag is rendered.
  */
 export const GOOGLE_SITE_VERIFICATION =
-  "tcyMT7hvmZ-W1-jLcLTlMdzSybREPQh6Y66OrPsQkqc";
+  "cfPUW43H-m6ApY2l81MQxzeijzlWHP5rrv87fXTQw-w";
