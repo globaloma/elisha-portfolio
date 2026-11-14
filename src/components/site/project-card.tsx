@@ -5,6 +5,7 @@ import type { Project } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 export function ProjectCard({ project }: { project: Project }) {
+  const isExternal = /^https?:\/\//.test(project.cta.href);
   return (
     <article
       className="group relative overflow-hidden rounded-3xl border border-border bg-[color:var(--surface)] p-5 transition-colors hover:border-[color:color-mix(in_oklab,var(--brand)_40%,var(--border))] sm:p-6"
@@ -45,6 +46,9 @@ export function ProjectCard({ project }: { project: Project }) {
 
           <Link
             href={project.cta.href}
+            {...(isExternal
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
             className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-brand"
           >
             {project.cta.label}

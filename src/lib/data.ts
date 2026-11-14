@@ -208,7 +208,7 @@ export const projects: Project[] = [
     tags: ["UI/UX", "Flutter", "Firebase"],
     brand: "#1f9d6b",
     accentName: "emerald",
-    cta: { label: "View Live", href: "#" },
+    cta: { label: "View Live", href: "https://getcribapp.com" },
     image: "/cards/crib.png",
     hasCaseStudy: false,
     featured: true,
