@@ -19,4 +19,5 @@ export const SITE_NAME = "Elisha Ibeabuchi";
  * method → copy ONLY the string inside content="..." and paste it between
  * the quotes below. Leave it empty and no tag is rendered.
  */
-export const GOOGLE_SITE_VERIFICATION = "";
+export const GOOGLE_SITE_VERIFICATION =
+  "tcyMT7hvmZ-W1-jLcLTlMdzSybREPQh6Y66OrPsQkqc";
