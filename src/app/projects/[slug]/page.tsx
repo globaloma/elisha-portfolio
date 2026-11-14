@@ -20,7 +20,25 @@ export async function generateMetadata({
   const { slug } = await params;
   const cs = caseStudies[slug];
   if (!cs) return { title: "Case Study" };
-  return { title: cs.name, description: cs.intro };
+  const url = `/projects/${slug}`;
+  return {
+    title: cs.name,
+    description: cs.intro,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      url,
+      title: `${cs.name} · Elisha Ibeabuchi`,
+      description: cs.intro,
+      images: [{ url: cs.heroImage, width: cs.heroW, height: cs.heroH, alt: cs.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${cs.name} · Elisha Ibeabuchi`,
+      description: cs.intro,
+      images: [cs.heroImage],
+    },
+  };
 }
 
 /* ---------- small building blocks ---------- */

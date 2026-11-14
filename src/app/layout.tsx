@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { SITE_URL, SITE_NAME } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,31 +16,104 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
+const TITLE = "Elisha Ibeabuchi — UI/UX Designer & Mobile App Developer";
+const DESCRIPTION =
+  "Elisha Ibeabuchi is a UI/UX designer, mobile app developer and Founder & CEO of Crib. I build modern, user-focused mobile apps and digital experiences from first sketch to the App Store.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://elisha-ibeabuchi.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Elisha Ibeabuchi — UI/UX Designer & Mobile App Developer",
+    default: TITLE,
     template: "%s · Elisha Ibeabuchi",
   },
-  description:
-    "Elisha Ibeabuchi is a UI/UX designer, mobile app developer and Founder & CEO of Crib. I build modern, user-focused mobile apps and digital experiences from first sketch to the App Store.",
+  description: DESCRIPTION,
   keywords: [
     "Elisha Ibeabuchi",
     "UI/UX Designer",
     "Mobile App Developer",
     "Flutter Developer",
     "Product Designer",
+    "App Designer Nigeria",
     "Crib",
     "Tranx",
     "Portfolio",
   ],
-  authors: [{ name: "Elisha Ibeabuchi" }],
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "technology",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Elisha Ibeabuchi — UI/UX Designer & Mobile App Developer",
+    type: "profile",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: "en_US",
+    title: TITLE,
     description:
       "Modern, user-focused mobile apps and digital experiences. Founder & CEO of Crib, building Tranx.",
-    type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description:
+      "Modern, user-focused mobile apps and digital experiences. Founder & CEO of Crib, building Tranx.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#22d3ee",
+  colorScheme: "dark",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: "Elisha Ibeabuchi",
+      url: SITE_URL,
+      image: `${SITE_URL}/opengraph-image`,
+      jobTitle: "UI/UX Designer & Mobile App Developer",
+      description: DESCRIPTION,
+      email: "mailto:Ibeabuchielisha@gmail.com",
+      worksFor: { "@type": "Organization", name: "Crib" },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Enugu",
+        addressCountry: "NG",
+      },
+      knowsAbout: [
+        "UI/UX Design",
+        "Product Design",
+        "Mobile App Development",
+        "Flutter",
+        "Fintech",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+      description: DESCRIPTION,
+      publisher: { "@id": `${SITE_URL}/#person` },
+      inLanguage: "en",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -47,7 +121,13 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`dark ${inter.variable} ${playfair.variable}`}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

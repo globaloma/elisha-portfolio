@@ -8,10 +8,19 @@ import { ContactSection } from "@/components/site/contact-section";
 import { Icon } from "@/components/icon";
 import { projects } from "@/lib/data";
 
+const PROJECTS_DESCRIPTION =
+  "Selected product design and mobile development work by Elisha Ibeabuchi — Crib, Tranx, LocalBite, VoltPass and Bookmaker.";
+
 export const metadata: Metadata = {
   title: "Projects",
-  description:
-    "Selected product design and mobile development work by Elisha Ibeabuchi — Crib, Tranx, LocalBite, VoltPass and Bookmaker.",
+  description: PROJECTS_DESCRIPTION,
+  alternates: { canonical: "/projects" },
+  openGraph: {
+    title: "Projects · Elisha Ibeabuchi",
+    description: PROJECTS_DESCRIPTION,
+    url: "/projects",
+    type: "website",
+  },
 };
 
 export default function ProjectsPage() {
