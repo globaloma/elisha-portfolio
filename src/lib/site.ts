@@ -21,3 +21,6 @@ export const SITE_NAME = "Elisha Ibeabuchi";
  */
 export const GOOGLE_SITE_VERIFICATION =
   "cfPUW43H-m6ApY2l81MQxzeijzlWHP5rrv87fXTQw-w";
+
+/** Bing Webmaster Tools verification code (the content of the msvalidate.01 tag). */
+export const BING_SITE_VERIFICATION = "ED705F5282E7456FF57764165485670F";
