@@ -291,8 +291,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         n: "01",
         title: "Splash & Onboarding",
         image: img("voltpass", "design-01.png"),
-        w: 878,
-        h: 535,
+        w: 838,
+        h: 550,
         desc: "The splash screen introduces VoltPass through a minimal dark interface, with the brand name and lighting symbol at the centre. The onboarding screens introduce the idea of smarter living through a visual of a modern home and the message “Experience the Future of smart living”.",
         bullets: [
           { label: "Splash Screen", text: "Establishes the app's identity and creates a consistent starting point for the user journey." },
@@ -303,8 +303,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         n: "02",
         title: "Smart Home Dashboard & Energy Monitoring",
         image: img("voltpass", "design-02.png"),
-        w: 878,
-        h: 530,
+        w: 838,
+        h: 521,
         desc: "The home screen gives users a centralized view of their smart sockets across different rooms. Users can switch between rooms, check active socket counts, monitor energy usage, and access individual socket controls from one dashboard.",
         bullets: [
           { label: "Home Screen", text: "Socket control across rooms." },
@@ -316,8 +316,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         n: "03",
         title: "Room-Based Socket Control & Scheduling",
         image: img("voltpass", "design-03.png"),
-        w: 1676,
-        h: 1042,
+        w: 838,
+        h: 521,
         desc: "The rooms screen organizes connected sockets by location, such as bedroom, kitchen, and living room. Each room displays its active socket count and energy usage, helping users understand where their electricity is being consumed and manage their devices more conveniently.",
         bullets: [
           { label: "Rooms Overview", text: "Organized by location." },
@@ -329,8 +329,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         n: "04",
         title: "Socket & Room Setup",
         image: img("voltpass", "design-04.png"),
-        w: 1676,
-        h: 1116,
+        w: 838,
+        h: 558,
         desc: "The socket settings screen allows users to assign a name, select a room, and configure a schedule with specific start and stop times. This helps users automate socket operation — such as switching off selected devices when they are not expected to be home — reducing unnecessary power usage.",
         bullets: [
           { label: "Add New", text: "Quick access to add a socket or room." },
