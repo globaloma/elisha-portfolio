@@ -53,15 +53,16 @@ export default function Home() {
           id="home"
           className="theme-dark relative overflow-hidden bg-[color:var(--background)] text-foreground scroll-mt-24"
         >
-          <span
-            aria-hidden
-            className="pointer-events-none absolute left-0 top-1/2 z-0 -translate-y-1/2 select-none whitespace-nowrap font-sans text-[26vw] font-black leading-none tracking-[-0.02em] text-foreground/[0.06] lg:text-[15.5rem]"
-          >
-            ELISHA
-          </span>
+          <div className="mx-0 w-full max-w-5xl px-6 pb-60 pt-28 sm:px-10 lg:pb-[21rem] lg:pl-16 lg:pr-10 lg:pt-24">
+            <div className="relative">
+              <span
+                aria-hidden
+                className="pointer-events-none absolute left-0 top-1/2 z-0 -translate-y-1/2 select-none whitespace-nowrap font-sans text-[26vw] font-black leading-none tracking-[-0.02em] text-foreground/[0.06] lg:text-[15.5rem]"
+              >
+                ELISHA
+              </span>
 
-          <div className="relative z-10 mx-0 w-full max-w-5xl px-6 pb-20 pt-28 sm:px-10 lg:pb-28 lg:pl-16 lg:pr-10 lg:pt-24">
-            <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+              <div className="relative z-10 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <span
               className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-brand"
@@ -125,6 +126,7 @@ export default function Home() {
               </div>
             ))}
           </div>
+            </div>
             </div>
           </div>
         </section>
