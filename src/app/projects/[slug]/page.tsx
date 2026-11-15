@@ -344,7 +344,7 @@ export default async function CaseStudyPage({
       {nextCase ? (
         <Link
           href={`/projects/${nextCase.slug}`}
-          className="group mt-14 flex items-center justify-between gap-5 rounded-2xl border border-border bg-[color:var(--surface)] px-6 py-6 text-brand transition-[filter] hover:brightness-110 sm:px-8"
+          className="group mt-14 flex items-center justify-between gap-5 rounded-2xl bg-brand/10 px-6 py-7 text-brand transition-colors hover:bg-brand/15 sm:px-8"
         >
           <span className="text-[15px] font-medium leading-relaxed sm:text-base">
             Explore my next project to see how I approach a different design challenge
