@@ -8,28 +8,22 @@ export function ProjectCard({ project }: { project: Project }) {
   const isExternal = /^https?:\/\//.test(project.cta.href);
   return (
     <article
-      className="group relative overflow-hidden rounded-3xl border border-border bg-[color:var(--surface)] p-5 transition-colors hover:border-[color:color-mix(in_oklab,var(--brand)_40%,var(--border))] sm:p-6"
+      className="group relative grid overflow-hidden rounded-2xl bg-[color:var(--surface)] card-shadow md:grid-cols-[minmax(0,0.95fr)_1fr]"
     >
-      <div className="grid items-center gap-6 md:grid-cols-[minmax(0,0.95fr)_1fr]">
-        {/* Visual — real exported design image */}
-        <div
-          className="relative overflow-hidden rounded-2xl border border-border"
-          style={{
-            background: `radial-gradient(90% 80% at 50% 0%, color-mix(in oklab, ${project.brand} 16%, #0c0d0f), #0a0b0d)`,
-          }}
-        >
+        {/* Visual — real exported design image, full-bleed */}
+        <div className="relative min-h-[260px] overflow-hidden md:min-h-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={project.image}
             alt={`${project.name} — preview`}
             loading="lazy"
             decoding="async"
-            className="block h-auto w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           />
         </div>
 
         {/* Text */}
-        <div>
+        <div className="p-6 sm:p-8">
           <h3 className="font-heading text-2xl font-semibold tracking-tight">{project.name}</h3>
           <p className="mt-3 max-w-md text-[15px] leading-relaxed text-muted-foreground">{project.description}</p>
 
@@ -55,7 +49,6 @@ export function ProjectCard({ project }: { project: Project }) {
             </Link>
           </div>
         </div>
-      </div>
     </article>
   );
 }

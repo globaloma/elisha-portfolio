@@ -3,7 +3,7 @@ import { profile } from "@/lib/data";
 
 export function Footer() {
   return (
-    <footer className="mt-20 border-t border-border pt-8">
+    <footer className="mt-20 border-t border-border pt-8 shadow-[0_-12px_28px_-20px_rgba(27,23,20,0.28)]">
       <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
         <div>
           <Link href="/#home" className="font-heading text-lg font-semibold">

@@ -33,7 +33,7 @@ export const about = {
   facts: [
     { icon: "map-pin", label: "Enugu, Nigeria" },
     { icon: "smartphone", label: "Mobile App Developer" },
-    { icon: "palette", label: "UI/UX Designer" },
+    { icon: "contrast", label: "UI/UX Designer" },
     { icon: "building-2", label: "Founder & CEO — Crib" },
     { icon: "rocket", label: "Founder — Tranx" },
     { icon: "message-circle", label: "WhatsApp Me", href: "https://wa.me/2348105138217" },
@@ -141,25 +141,25 @@ export const education = [
     title: "Ordinary National Diploma — Architecture",
     org: "Institute of Management and Technology, Enugu",
     period: "2022 — 2024",
-    icon: "ruler",
+    icon: "compass",
   },
   {
     title: "B.Sc Computer Science",
     org: "University of Nigeria, Nsukka",
     period: "2026 — Present",
-    icon: "graduation-cap",
+    icon: "monitor",
   },
   {
     title: "UI/UX Design",
     org: "Digital Dreams Academy, Enugu",
     period: "2024",
-    icon: "palette",
+    icon: "contrast",
   },
   {
     title: "Mobile App Development",
     org: "Prime Robotics, Enugu",
     period: "2025",
-    icon: "smartphone",
+    icon: "code-2",
   },
 ] as const;
 

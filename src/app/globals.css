@@ -157,6 +157,10 @@
   }
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  /* Soft drop shadow for light-surface cards, matching the Figma. */
+  .card-shadow {
+    box-shadow: 0 1px 2px rgba(27, 23, 20, 0.04), 0 14px 34px -16px rgba(27, 23, 20, 0.18);
+  }
 }
 
 /* thin, subtle scrollbar */

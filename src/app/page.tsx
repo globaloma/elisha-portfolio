@@ -135,39 +135,39 @@ export default function Home() {
       {/* ============================== ABOUT ============================== */}
       <section id="about" className="scroll-mt-24">
         <SectionHeading icon="user" title="About Me" />
-        <div className="mt-8 grid gap-6 lg:grid-cols-[1.4fr_1fr]">
-          <div className="rounded-3xl border border-border bg-[color:var(--surface)] p-6 sm:p-8">
+        <div className="card-shadow mt-8 rounded-2xl bg-[color:var(--surface)] p-6 sm:p-8">
+          <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:gap-10">
             <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
               {about.paragraphs.map((p, i) => (
                 <p key={i}>{highlight(p)}</p>
               ))}
             </div>
-          </div>
-          <div className="flex flex-col gap-2.5">
-            {about.facts.map((f) => {
-              const inner = (
-                <>
-                  <Icon name={f.icon} className="size-5 shrink-0 text-brand" />
-                  <span className="text-sm font-medium">{f.label}</span>
-                </>
-              );
-              return "href" in f && f.href ? (
-                <a
-                  key={f.label}
-                  href={f.href}
-                  className="flex items-center gap-3 rounded-xl bg-[color:var(--surface-2)] px-4 py-3.5 transition-colors hover:brightness-95"
-                >
-                  {inner}
-                </a>
-              ) : (
-                <div
-                  key={f.label}
-                  className="flex items-center gap-3 rounded-xl bg-[color:var(--surface-2)] px-4 py-3.5"
-                >
-                  {inner}
-                </div>
-              );
-            })}
+            <div className="flex flex-col gap-2.5">
+              {about.facts.map((f) => {
+                const inner = (
+                  <>
+                    <Icon name={f.icon} className="size-5 shrink-0 text-brand" />
+                    <span className="text-sm font-medium">{f.label}</span>
+                  </>
+                );
+                return "href" in f && f.href ? (
+                  <a
+                    key={f.label}
+                    href={f.href}
+                    className="flex items-center gap-3 rounded-[10px] bg-[color:var(--surface-2)] px-4 py-3.5 transition-colors hover:brightness-95"
+                  >
+                    {inner}
+                  </a>
+                ) : (
+                  <div
+                    key={f.label}
+                    className="flex items-center gap-3 rounded-[10px] bg-[color:var(--surface-2)] px-4 py-3.5"
+                  >
+                    {inner}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -179,7 +179,7 @@ export default function Home() {
           {services.map((s) => (
             <div
               key={s.title}
-              className="group rounded-3xl border border-border bg-[color:var(--surface)] p-6 transition-colors hover:border-[color:color-mix(in_oklab,var(--brand)_35%,var(--border))]"
+              className="group card-shadow rounded-2xl bg-[color:var(--surface)] p-6 transition-shadow hover:shadow-[0_2px_4px_rgba(27,23,20,0.05),0_18px_40px_-18px_rgba(27,23,20,0.24)]"
             >
               <span
                 className="grid size-12 place-items-center rounded-xl"
@@ -226,36 +226,48 @@ export default function Home() {
       {/* ============================== EXPERIENCE ============================== */}
       <section className="mt-24">
         <SectionHeading icon="briefcase" title="Experience" />
-        <div className="mt-8 space-y-5">
-          {experience.map((job) => (
-            <div
-              key={job.role}
-              className="relative rounded-3xl border border-border bg-[color:var(--surface)] p-6 sm:p-7"
-            >
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div>
-                  <h3 className="font-heading text-xl font-semibold">{job.role}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{job.company}</p>
+        <div className="relative mt-8 space-y-5 pl-9">
+          {/* timeline rail */}
+          <span
+            aria-hidden
+            className="absolute left-[9px] top-6 bottom-6 w-px bg-[color:var(--border)]"
+          />
+          {experience.map((job, i) => (
+            <div key={job.role} className="relative">
+              {/* timeline dot — first (current) role highlighted */}
+              <span
+                aria-hidden
+                className="absolute -left-[33px] top-[26px] size-3.5 rounded-full ring-4 ring-[color:var(--background)]"
+                style={{
+                  background: i === 0 ? "var(--brand)" : "color-mix(in oklab, var(--foreground) 28%, transparent)",
+                }}
+              />
+              <div className="card-shadow rounded-2xl bg-[color:var(--surface)] p-6 sm:p-7">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <h3 className="font-heading text-xl font-semibold">{job.role}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground">{job.company}</p>
+                  </div>
+                  <span
+                    className="rounded-full border px-3 py-1 text-xs font-medium"
+                    style={{
+                      borderColor: "color-mix(in oklab, var(--brand) 30%, var(--border))",
+                      color: "var(--brand)",
+                      background: "color-mix(in oklab, var(--brand) 10%, transparent)",
+                    }}
+                  >
+                    {job.period}
+                  </span>
                 </div>
-                <span
-                  className="rounded-full border px-3 py-1 text-xs font-medium"
-                  style={{
-                    borderColor: "color-mix(in oklab, var(--brand) 30%, var(--border))",
-                    color: "var(--brand)",
-                    background: "color-mix(in oklab, var(--brand) 10%, transparent)",
-                  }}
-                >
-                  {job.period}
-                </span>
+                <ul className="mt-5 space-y-2.5">
+                  {job.points.map((pt) => (
+                    <li key={pt} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: "var(--brand)" }} />
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
-                {job.points.map((pt) => (
-                  <li key={pt} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: "var(--brand)" }} />
-                    <span>{pt}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>
@@ -264,7 +276,7 @@ export default function Home() {
       {/* ============================== CAPABILITIES (SKILLS) ============================== */}
       <section id="skills" className="mt-24 scroll-mt-24">
         <SectionHeading icon="layers" title="My Capabilities" />
-        <div className="mt-8 rounded-3xl border border-border bg-[color:var(--surface)] p-6 sm:p-10">
+        <div className="card-shadow mt-8 rounded-2xl bg-[color:var(--surface)] p-6 sm:p-10">
           <div className="divide-y divide-border">
             {capabilities.map((c) => (
               <div key={c.title} className="py-8 first:pt-0 last:pb-0">
@@ -291,9 +303,9 @@ export default function Home() {
             {tools.map((t) => (
               <div
                 key={t}
-                className="flex items-center gap-3 rounded-xl border border-border bg-[color:var(--surface)] px-4 py-3.5 text-sm font-medium transition-colors hover:border-foreground/20"
+                className="rounded-[10px] bg-[color:var(--surface-2)] px-4 py-3.5 text-sm font-semibold transition-colors"
+                style={{ border: "1px solid color-mix(in oklab, var(--brand) 22%, var(--border))" }}
               >
-                <span className="h-2 w-2 rounded-full" style={{ background: "var(--brand)" }} />
                 {t}
               </div>
             ))}
@@ -307,11 +319,11 @@ export default function Home() {
             {education.map((e) => (
               <div
                 key={e.title}
-                className="flex items-start gap-4 rounded-2xl border border-border bg-[color:var(--surface)] p-5"
+                className="flex items-start gap-4 rounded-2xl bg-[color:var(--surface-2)] p-5"
               >
                 <span
                   className="grid size-10 shrink-0 place-items-center rounded-lg"
-                  style={{ background: "color-mix(in oklab, var(--brand) 14%, var(--surface-2))" }}
+                  style={{ background: "color-mix(in oklab, var(--brand) 12%, var(--surface))" }}
                 >
                   <Icon name={e.icon} className="size-5 text-brand" />
                 </span>
@@ -329,22 +341,18 @@ export default function Home() {
       {/* ============================== CURRENTLY BUILDING ============================== */}
       <section className="mt-24">
         <SectionHeading icon="hammer" title="Currently Building" />
-        <div className="mt-8 overflow-hidden rounded-3xl border border-border bg-[color:var(--surface)] p-6 sm:p-8">
-          <div className="grid items-center gap-8 md:grid-cols-[auto_1fr]">
-            <div
-              className="flex items-center justify-center overflow-hidden rounded-2xl border border-border md:w-[320px]"
-              style={{ background: `radial-gradient(80% 80% at 50% 0%, color-mix(in oklab, ${currentlyBuilding.brand} 18%, #0b0d0c), #090b0a)` }}
-            >
+        <div className="card-shadow mt-8 grid overflow-hidden rounded-2xl bg-[color:var(--surface)] md:grid-cols-[minmax(0,340px)_1fr]">
+            <div className="relative min-h-[260px] overflow-hidden md:min-h-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={currentlyBuilding.image}
                 alt={`${currentlyBuilding.name} — preview`}
                 loading="lazy"
                 decoding="async"
-                className="block h-auto w-full object-contain"
+                className="absolute inset-0 h-full w-full object-cover"
               />
             </div>
-            <div>
+            <div className="p-6 sm:p-8">
               <div className="flex flex-wrap items-center gap-3">
                 <h3 className="font-heading text-2xl font-semibold">{currentlyBuilding.name}</h3>
                 <span
@@ -388,7 +396,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* ============================== CONTACT ============================== */}

@@ -68,7 +68,7 @@ export function Sidebar() {
             href={item.href}
             onClick={() => setOpen(false)}
             className={cn(
-              "group flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium transition-colors",
+              "group flex items-center gap-3 rounded-[10px] px-3.5 py-2.5 text-sm font-medium transition-colors",
               act
                 ? "border border-border bg-[color:var(--surface-2)] text-foreground"
                 : "border border-transparent text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"

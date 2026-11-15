@@ -37,6 +37,9 @@ import {
   Layers,
   Hammer,
   BookOpen,
+  Monitor,
+  Contrast,
+  Compass,
   type LucideProps,
 } from "lucide-react";
 import { type ReactElement, type ReactNode } from "react";
@@ -128,6 +131,9 @@ const map = {
   layers: Layers,
   hammer: Hammer,
   "book-open": BookOpen,
+  monitor: Monitor,
+  contrast: Contrast,
+  compass: Compass,
   "home-solid": HomeSolid,
   "user-solid": UserSolid,
   "grid-solid": GridSolid,
