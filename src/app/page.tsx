@@ -53,11 +53,11 @@ export default function Home() {
           id="home"
           className="theme-dark relative overflow-hidden bg-[color:var(--background)] text-foreground scroll-mt-24"
         >
-          <div className="mx-0 w-full max-w-5xl px-6 pb-60 pt-28 sm:px-10 lg:pb-[21rem] lg:pl-16 lg:pr-10 lg:pt-24">
+          <div className="mx-0 w-full max-w-5xl px-6 py-24 sm:px-10 sm:py-28 lg:py-52 lg:pl-16 lg:pr-10">
             <div className="relative">
               <span
                 aria-hidden
-                className="pointer-events-none absolute -left-[0.05em] top-[54%] z-0 select-none whitespace-nowrap font-sans text-[20vw] font-semibold leading-none tracking-[-0.02em] text-foreground/[0.03] lg:text-[11rem]"
+                className="pointer-events-none absolute -left-[0.02em] top-[54%] z-0 select-none whitespace-nowrap font-sans text-[20vw] font-semibold leading-none tracking-[0.32em] text-foreground/[0.03] lg:text-[11rem]"
               >
                 ELISHA
               </span>
