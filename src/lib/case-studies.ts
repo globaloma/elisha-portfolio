@@ -510,8 +510,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         n: "02",
         title: "Sports News & Article Details",
         image: img("bookmaker", "design-02.png"),
-        w: 883,
-        h: 490,
+        w: 838,
+        h: 521,
         bullets: [
           { label: "Sports News & Updates", text: "The news listing page organizes articles into visual cards, with search and filtering to help users discover relevant stories across football and other sports." },
           { label: "Article Details", text: "Selecting a card opens a dedicated article page with the headline, category, publication date, featured image, and content, plus related stories." },
@@ -548,8 +548,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         n: "05",
         title: "Admin Dashboard",
         image: img("bookmaker", "design-05.png"),
-        w: 883,
-        h: 548,
+        w: 838,
+        h: 569,
         bullets: [
           { label: "Performance Overview", text: "Today's predictions, free and VIP predictions, active subscribers, wins and total matches." },
           { label: "Prediction Management", text: "Quick actions to add new predictions and view existing ones." },
@@ -562,8 +562,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         n: "06",
         title: "Prediction Management",
         image: img("bookmaker", "design-06.png"),
-        w: 883,
-        h: 548,
+        w: 838,
+        h: 569,
         bullets: [
           { label: "Prediction Filters", text: "Separate predictions by access type and match outcome — won, lost, and pending." },
           { label: "Prediction Table", text: "Match details, leagues, tip, odds, access type, status and kickoff time, with options to edit or delete." },
