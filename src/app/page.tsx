@@ -46,20 +46,22 @@ export default function Home() {
   const featured = projects.filter((p) => p.featured);
 
   return (
-    <Shell>
-      {/* ============================== HERO (dark) ============================== */}
-      <section
-        id="home"
-        className="theme-dark relative z-0 overflow-hidden rounded-[2rem] bg-[color:var(--background)] px-6 py-12 text-foreground scroll-mt-24 sm:px-10 sm:py-14 lg:px-14 lg:py-16"
-      >
-        <span
-          aria-hidden
-          className="pointer-events-none absolute left-0 top-1/2 z-0 -translate-y-1/2 select-none whitespace-nowrap font-heading text-[25vw] font-bold leading-none tracking-tight text-foreground/[0.05] lg:text-[13rem]"
+    <Shell
+      hero={
+        /* ===================== HERO (dark, full-bleed band) ===================== */
+        <section
+          id="home"
+          className="theme-dark relative overflow-hidden bg-[color:var(--background)] text-foreground scroll-mt-24"
         >
-          ELISHA
-        </span>
+          <div className="relative mx-0 w-full max-w-5xl px-5 pb-16 pt-28 sm:px-8 lg:pb-16 lg:pt-24">
+            <span
+              aria-hidden
+              className="pointer-events-none absolute left-0 top-1/2 z-0 -translate-y-1/2 select-none whitespace-nowrap font-heading text-[25vw] font-bold leading-none tracking-tight text-foreground/[0.05] lg:text-[13rem]"
+            >
+              ELISHA
+            </span>
 
-        <div className="relative z-10 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div className="relative z-10 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <span
               className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-brand"
@@ -123,11 +125,13 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
+            </div>
+          </div>
+        </section>
+      }
+    >
       {/* ============================== ABOUT ============================== */}
-      <section id="about" className="mt-24 scroll-mt-24">
+      <section id="about" className="scroll-mt-24">
         <SectionHeading icon="user" title="About Me" />
         <div className="mt-8 grid gap-6 lg:grid-cols-[1.4fr_1fr]">
           <div className="rounded-3xl border border-border bg-[color:var(--surface)] p-6 sm:p-8">
