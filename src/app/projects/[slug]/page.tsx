@@ -142,6 +142,7 @@ export default async function CaseStudyPage({
   const title = cs.displayName ?? cs.shortName;
   const showChrome = cs.designsChrome !== "none";
   const showTitle = cs.designsChrome === "full";
+  const lettered = cs.bulletStyle === "lettered";
 
   return (
     <Shell dark={isDark}>
@@ -280,7 +281,7 @@ export default async function CaseStudyPage({
                     {d.desc ? (
                       <p className="text-[15px] leading-relaxed text-muted-foreground">{d.desc}</p>
                     ) : null}
-                    {d.bullets?.length ? (
+                    {d.bullets?.length && lettered ? (
                       <div className={cn("space-y-5", d.desc ? "mt-5" : "")}>
                         {d.bullets.map((b, i) => (
                           <div key={`${d.n}-${i}`}>
@@ -295,6 +296,19 @@ export default async function CaseStudyPage({
                           </div>
                         ))}
                       </div>
+                    ) : null}
+                    {d.bullets?.length && !lettered ? (
+                      <>
+                        <p className="mt-5 font-semibold">Brief explanation</p>
+                        <div className="mt-3 space-y-2">
+                          {d.bullets.map((b, i) => (
+                            <p key={`${d.n}-${i}`} className="text-[15px] leading-relaxed">
+                              <span className="font-semibold text-foreground">{b.label}:</span>{" "}
+                              <span className="text-muted-foreground">{b.text}</span>
+                            </p>
+                          ))}
+                        </div>
+                      </>
                     ) : null}
                     {d.focus ? (
                       <p className="mt-5 text-[15px] leading-relaxed">

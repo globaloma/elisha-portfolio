@@ -41,6 +41,12 @@ export type CaseStudy = {
    * - "none": image only (images carry all their own labels and text).
    */
   designsChrome: "full" | "numbered" | "none";
+  /**
+   * How each design's explanation bullets are laid out, to match the Figma:
+   * - "lettered": each bullet is its own serif sub-heading "(A). Label" + paragraph (VoltPass, LocalBite).
+   * - "brief" (default): a lead paragraph, a "Brief explanation" label, then inline "Label: text" bullets (Tranx, Bookmaker).
+   */
+  bulletStyle?: "lettered" | "brief";
   heroImage: string;
   heroW: number;
   heroH: number;
@@ -102,25 +108,25 @@ export const caseStudies: Record<string, CaseStudy> = {
         n: "01",
         title: "Splash & Onboarding",
         image: img("tranx", "design-01.png"),
-        w: 870,
-        h: 572,
+        w: 838,
+        h: 580,
         desc: "The splash screen establishes TRANX's visual identity through its minimal logo, dark interface, and green gradient accents. The onboarding screens introduce the app's core capabilities, including instant payments, bill payment, airtime, data purchase, and its AI-powered assistant.",
         bullets: [
           { label: "Splash Screen", text: "Introduces the TRANX brand with a clean, minimal identity." },
           { label: "Onboarding 01", text: "Highlights the convenience of managing everyday payments in one app." },
-          { label: "Onboarding 02", text: "Shows how the AI assistant simplifies transfers by understanding the user's instructions and requesting confirmation before proceeding." },
+          { label: "Onboarding 02", text: "Demonstrates how the AI assistant simplifies transfers by understanding the users instructions and requesting confirmation before proceeding." },
         ],
       },
       {
         n: "02",
         title: "Login & Registration",
         image: img("tranx", "design-02.png"),
-        w: 850,
-        h: 556,
+        w: 838,
+        h: 580,
         desc: "These screens demonstrate TRANX's account creation and returning-user authentication experience, with a focus on simplicity, security, and convenience.",
         bullets: [
-          { label: "Registration", text: "Lets new users create an account with their full name, email, phone number, and password, with clear password requirements." },
-          { label: "Biometric Login", text: "Enables returning users to access their accounts quickly using fingerprint." },
+          { label: "Registration", text: "Allows new users to create an account using their full name, email, phone number, and password, with clear password requirements." },
+          { label: "Biometric Login", text: "Enables returning users to access their accounts quickly using fingerprint" },
           { label: "Password Login", text: "Provides an alternative login method with a masked phone number, password field, and password recovery option." },
         ],
       },
@@ -128,28 +134,46 @@ export const caseStudies: Record<string, CaseStudy> = {
         n: "03",
         title: "Dashboard",
         image: img("tranx", "design-03.png"),
-        w: 850,
-        h: 552,
-        desc: "The TRANX dashboard provides users with a central space to manage their finances. It displays wallet balance, quick payment options, saved beneficiaries, recent transactions, and direct access to the AI payment assistant. The dark interface and green accents create a clean, modern experience while keeping essential financial actions easily accessible.",
+        w: 838,
+        h: 580,
+        desc: "The TRANX dashboard provides users with a central space to manage their finances, it displays wallet balance, quick payment options, saved beneficiaries, recent transactions, and direct access to the AI payment assistant. The dark interface and green accents create a clean, modern experience while keeping essential financial actions easily accessible.",
       },
       {
         n: "04",
         title: "Add Money to Wallet",
         image: img("tranx", "design-04.png"),
-        w: 870,
-        h: 650,
-        desc: "The wallet funding experience lets users add money to their TRANX wallet. The process is divided into clear steps — from entering an amount and selecting a payment method, to confirming the transaction and receiving payment confirmation.",
+        w: 838,
+        h: 580,
+        desc: "The wallet funding experience allows users to add money to their TRANX wallet. The process is divided into clear steps, from entering an amount and selecting a payment method, to confirming the transaction and receiving payment confirmation.",
         bullets: [
-          { label: "The flow", text: "Wallet dashboard → enter amount → payment method → card details → review payment → processing → payment success → transaction receipt → updated dashboard." },
+          { label: "Wallet Dashboard", text: "Displays the current balance and entry point for adding money." },
+          { label: "Enter Amount", text: "Users select or enter their preferred funding amount." },
+          { label: "Payment Method", text: "Choose the payment option suitable for you." },
+          { label: "Card Details", text: "Enter card information and optionally save the card." },
+          { label: "Review Payment", text: "Review the amount, payment method, fees and total." },
+          { label: "Processing Payment", text: "Shows the payment progress." },
+          { label: "Payment Success", text: "Confirms that funds have been added." },
+          { label: "Transaction Receipt", text: "Provides transaction details, sharing and repeat-payment options." },
+          { label: "Updated Dashboard", text: "Displays the wallet's new balance." },
         ],
       },
       {
         n: "05",
         title: "TRANX AI Transfers",
         image: img("tranx", "design-05.png"),
-        w: 870,
+        w: 838,
         h: 600,
-        desc: "This flow demonstrates how users can make bank transfers using the TRANX AI assistant through simple text instructions or voice commands. The AI identifies the recipient and amount, presents the transaction details for confirmation, and requests the user's transaction PIN before processing.",
+        desc: "This flow demonstrates how users can make bank transfers using the TRANX AI assistant using simple text instructions or voice commands, The AI identifies the recipient and amount, presents the transaction details for confirmation, and requests the user's transaction PIN before processing.",
+        bullets: [
+          { label: "Wallet Dashboard", text: "Access the AI transfer assistant from the homescreen" },
+          { label: "AI Welcome", text: "Introduces the assistant and suggested payment commands" },
+          { label: "Transfer Confirmation", text: "Displays recipient and transfer amount for review" },
+          { label: "PIN Authentication", text: "Secures the transaction with a 4-digit PIN." },
+          { label: "Processing Payment", text: "Shows the transfer progress." },
+          { label: "Transfer Success", text: "Confirms that the money was sent" },
+          { label: "Transaction Receipt", text: "Displays the transfer details and reference." },
+          { label: "Updated Dashboard", text: "Reflects the reduced wallet balance." },
+        ],
       },
     ],
     reflection:
@@ -168,6 +192,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     designsIntro:
       "Here are some selected designs for LocalBites, which includes the splash & onboarding, customer dashboard, vendor dashboard and so on.",
     designsChrome: "numbered",
+    bulletStyle: "lettered",
     intro:
       "A mobile app designed for Nigerian food vendors, helping users order their local dishes from their favourite vendors with ease.",
     heroImage: img("localbite", "hero.png"),
@@ -305,6 +330,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     designsIntro:
       "Here are some selected designs for VoltPass, which includes the splash & onboarding, dashboard, and so on.",
     designsChrome: "full",
+    bulletStyle: "lettered",
     intro:
       "A mobile app concept that allows users to connect smart sockets and manage them by room, including bedrooms, living rooms and kitchens.",
     heroImage: img("voltpass", "hero.png"),
