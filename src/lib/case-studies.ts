@@ -359,7 +359,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     brand: "#1f9d55",
     theme: "light",
     designsIntro:
-      "Here are some selected designs for Bookmaker, which includes the homepage, news, VIP subscription, admin dashboard and so on.",
+      "Here are some selected designs for Bookmaker, which includes the homescreen, VIP dashboard, payment screens, news and so on.",
     designsChrome: "full",
     intro:
       "A sports betting website designed to help football fans explore daily match predictions, access betting insights, and unlock premium VIP tips.",
