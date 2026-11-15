@@ -25,11 +25,17 @@ export type CaseStudy = {
   slug: string;
   name: string;
   shortName: string;
+  /** How the brand name is written in the design header/back-bar (e.g. "TRANX"). Falls back to shortName. */
+  displayName?: string;
   tagline: string;
   category: string;
   brand: string;
   theme: "dark" | "light";
   intro: string;
+  /** Right-column blurb above the Selected Designs images. */
+  designsIntro: string;
+  /** "full" = render number + title + explanation chrome around bare images; "none" = images already carry their own labels. */
+  designsChrome: "full" | "none";
   heroImage: string;
   heroW: number;
   heroH: number;
@@ -55,12 +61,16 @@ export const caseStudies: Record<string, CaseStudy> = {
     slug: "tranx",
     name: "Tranx — Fintech App",
     shortName: "Tranx",
+    displayName: "TRANX",
     tagline: "Smarter payments. Made easy.",
     category: "AI-Powered Fintech · Mobile App",
     brand: "#2fd27b",
     theme: "dark",
     intro:
       "An AI-powered fintech mobile application designed to simplify everyday payments, money transfers, and financial transactions.",
+    designsIntro:
+      "Here are some selected designs for TRANX, which includes the splash & onboarding, dashboard, and so on.",
+    designsChrome: "full",
     heroImage: img("tranx", "hero.png"),
     heroW: 1732,
     heroH: 1832,
@@ -87,8 +97,8 @@ export const caseStudies: Record<string, CaseStudy> = {
         n: "01",
         title: "Splash & Onboarding",
         image: img("tranx", "design-01.png"),
-        w: 850,
-        h: 590,
+        w: 870,
+        h: 572,
         desc: "The splash screen establishes TRANX's visual identity through its minimal logo, dark interface, and green gradient accents. The onboarding screens introduce the app's core capabilities, including instant payments, bill payment, airtime, data purchase, and its AI-powered assistant.",
         bullets: [
           { label: "Splash Screen", text: "Introduces the TRANX brand with a clean, minimal identity." },
@@ -150,6 +160,9 @@ export const caseStudies: Record<string, CaseStudy> = {
     category: "Food Ordering · Mobile App",
     brand: "#f59e0b",
     theme: "light",
+    designsIntro:
+      "Here are some selected designs for LocalBites, which includes the splash & onboarding, customer dashboard, vendor dashboard and so on.",
+    designsChrome: "none",
     intro:
       "A mobile app designed for Nigerian food vendors, helping users order their local dishes from their favourite vendors with ease.",
     heroImage: img("localbite", "hero.png"),
@@ -240,6 +253,9 @@ export const caseStudies: Record<string, CaseStudy> = {
     category: "Smart Home / IoT · Mobile App",
     brand: "#3b82f6",
     theme: "dark",
+    designsIntro:
+      "Here are some selected designs for VoltPass, which includes the splash & onboarding, dashboard, and so on.",
+    designsChrome: "full",
     intro:
       "A mobile app concept that allows users to connect smart sockets and manage them by room, including bedrooms, living rooms and kitchens.",
     heroImage: img("voltpass", "hero.png"),
@@ -342,6 +358,9 @@ export const caseStudies: Record<string, CaseStudy> = {
     category: "Sports Betting · Responsive Website",
     brand: "#1f9d55",
     theme: "light",
+    designsIntro:
+      "Here are some selected designs for Bookmaker, which includes the homepage, news, VIP subscription, admin dashboard and so on.",
+    designsChrome: "full",
     intro:
       "A sports betting website designed to help football fans explore daily match predictions, access betting insights, and unlock premium VIP tips.",
     heroImage: img("bookmaker", "hero.png"),
