@@ -16,7 +16,7 @@ export function Shell({
       <Sidebar />
       <main
         className={cn(
-          "min-h-screen lg:pl-[288px]",
+          "min-h-screen lg:pl-[300px]",
           dark && "theme-dark bg-[color:var(--background)] text-foreground",
           className,
         )}

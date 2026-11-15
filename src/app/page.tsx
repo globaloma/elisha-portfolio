@@ -50,16 +50,16 @@ export default function Home() {
       {/* ============================== HERO (dark) ============================== */}
       <section
         id="home"
-        className="theme-dark relative -mx-5 -mt-24 overflow-hidden rounded-b-[2rem] bg-[color:var(--background)] px-5 pb-16 pt-28 text-foreground scroll-mt-24 sm:-mx-8 sm:px-8 lg:-mt-16 lg:pb-20 lg:pt-20"
+        className="theme-dark relative z-0 overflow-hidden rounded-[2rem] bg-[color:var(--background)] px-6 py-12 text-foreground scroll-mt-24 sm:px-10 sm:py-14 lg:px-14 lg:py-16"
       >
         <span
           aria-hidden
-          className="pointer-events-none absolute -top-6 right-0 select-none font-heading text-[22vw] font-black leading-none text-foreground/[0.045] lg:text-[12rem]"
+          className="pointer-events-none absolute left-0 top-1/2 z-0 -translate-y-1/2 select-none whitespace-nowrap font-heading text-[25vw] font-bold leading-none tracking-tight text-foreground/[0.05] lg:text-[13rem]"
         >
           ELISHA
         </span>
 
-        <div className="relative grid gap-10 lg:grid-cols-[1fr_auto] lg:items-start">
+        <div className="relative z-10 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <span
               className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-brand"
