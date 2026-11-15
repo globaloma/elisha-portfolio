@@ -57,7 +57,7 @@ export default function Home() {
             <div className="relative">
               <span
                 aria-hidden
-                className="pointer-events-none absolute -left-[0.06em] top-1/2 z-0 -translate-y-1/2 select-none whitespace-nowrap font-sans text-[28vw] font-black leading-none tracking-[-0.02em] text-foreground/[0.038] lg:text-[18rem]"
+                className="pointer-events-none absolute -left-[0.05em] top-[54%] z-0 select-none whitespace-nowrap font-sans text-[20vw] font-semibold leading-none tracking-[-0.02em] text-foreground/[0.03] lg:text-[11rem]"
               >
                 ELISHA
               </span>
