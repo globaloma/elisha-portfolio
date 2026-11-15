@@ -8,17 +8,17 @@ export function ProjectCard({ project }: { project: Project }) {
   const isExternal = /^https?:\/\//.test(project.cta.href);
   return (
     <article
-      className="group relative grid overflow-hidden rounded-2xl bg-[color:var(--surface)] card-shadow md:grid-cols-[minmax(0,0.95fr)_1fr]"
+      className="group relative grid overflow-hidden rounded-2xl bg-[color:var(--surface)] card-shadow md:grid-cols-[minmax(0,0.92fr)_1fr] md:items-center"
     >
-        {/* Visual — real exported design image, full-bleed */}
-        <div className="relative min-h-[260px] overflow-hidden md:min-h-0">
+        {/* Visual — real exported design image, shown whole and full-bleed */}
+        <div className="relative overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={project.image}
             alt={`${project.name} — preview`}
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            className="block h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           />
         </div>
 

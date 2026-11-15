@@ -224,7 +224,7 @@ export const projects: Project[] = [
     brand: "#2fd27b",
     accentName: "green",
     cta: { label: "View Project", href: "/projects/tranx" },
-    image: "/case-studies/tranx/hero.png",
+    image: "/cards/tranx.png",
     hasCaseStudy: true,
     featured: true,
   },
