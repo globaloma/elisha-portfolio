@@ -87,7 +87,7 @@ export function Sidebar() {
   );
 
   const Contact = (
-    <div className="mt-auto space-y-2 border-t border-border pt-5">
+    <div className="mt-6 space-y-2.5">
       <a
         href={profile.phoneHref}
         className="flex items-center gap-2.5 text-[13px] text-muted-foreground transition-colors hover:text-foreground"

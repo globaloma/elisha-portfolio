@@ -99,7 +99,7 @@ function Figure({ design }: { design: Design }) {
       height={design.h}
       loading="lazy"
       decoding="async"
-      className="block w-full rounded-2xl border border-border bg-[color:var(--surface-2)] shadow-lg"
+      className="block h-auto w-full"
     />
   );
 }
@@ -178,7 +178,7 @@ export default async function CaseStudyPage({
         </header>
 
         {/* hero render */}
-        <figure className="mt-10 overflow-hidden rounded-3xl border border-border bg-[color:var(--surface-2)]">
+        <figure className="mt-10">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={cs.heroImage}
@@ -186,7 +186,7 @@ export default async function CaseStudyPage({
             width={cs.heroW}
             height={cs.heroH}
             decoding="async"
-            className="block w-full"
+            className="block h-auto w-full"
           />
         </figure>
 

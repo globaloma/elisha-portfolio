@@ -53,15 +53,15 @@ export default function Home() {
           id="home"
           className="theme-dark relative overflow-hidden bg-[color:var(--background)] text-foreground scroll-mt-24"
         >
-          <div className="relative mx-0 w-full max-w-5xl px-5 pb-16 pt-28 sm:px-8 lg:pb-16 lg:pt-24">
-            <span
-              aria-hidden
-              className="pointer-events-none absolute left-0 top-1/2 z-0 -translate-y-1/2 select-none whitespace-nowrap font-sans text-[26vw] font-black leading-none tracking-[-0.02em] text-foreground/[0.06] lg:text-[15.5rem]"
-            >
-              ELISHA
-            </span>
+          <span
+            aria-hidden
+            className="pointer-events-none absolute left-0 top-1/2 z-0 -translate-y-1/2 select-none whitespace-nowrap font-sans text-[26vw] font-black leading-none tracking-[-0.02em] text-foreground/[0.06] lg:text-[15.5rem]"
+          >
+            ELISHA
+          </span>
 
-            <div className="relative z-10 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div className="relative z-10 mx-0 w-full max-w-5xl px-6 pb-20 pt-28 sm:px-10 lg:pb-28 lg:pl-16 lg:pr-10 lg:pt-24">
+            <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <span
               className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-brand"
@@ -114,14 +114,14 @@ export default function Home() {
           </div>
 
           {/* stat cards */}
-          <div className="flex gap-4 lg:flex-col">
+          <div className="flex gap-3 lg:flex-col">
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="flex-1 rounded-2xl bg-[#17191a] px-5 py-4 text-center shadow-sm lg:w-36 lg:text-left"
+                className="flex-1 rounded-lg bg-[#17191a] px-3.5 py-2.5 text-center shadow-sm lg:w-28 lg:text-left"
               >
-                <div className="font-heading text-3xl font-bold text-[color:var(--brand-bright)]">{s.value}</div>
-                <div className="mt-1 text-xs text-white/55">{s.label}</div>
+                <div className="font-heading text-xl font-bold text-[color:var(--brand-bright)]">{s.value}</div>
+                <div className="mt-0.5 text-[11px] text-white/55">{s.label}</div>
               </div>
             ))}
           </div>
