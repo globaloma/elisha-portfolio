@@ -57,7 +57,7 @@ export default function Home() {
             <div className="relative">
               <span
                 aria-hidden
-                className="pointer-events-none absolute left-0 top-1/2 z-0 -translate-y-1/2 select-none whitespace-nowrap font-sans text-[26vw] font-black leading-none tracking-[-0.02em] text-foreground/[0.06] lg:text-[15.5rem]"
+                className="pointer-events-none absolute -left-[0.06em] top-1/2 z-0 -translate-y-1/2 select-none whitespace-nowrap font-sans text-[28vw] font-black leading-none tracking-[-0.02em] text-foreground/[0.038] lg:text-[18rem]"
               >
                 ELISHA
               </span>
@@ -72,7 +72,7 @@ export default function Home() {
               {profile.tagline}
             </span>
 
-            <h1 className="mt-6 font-heading text-5xl font-bold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
+            <h1 className="mt-6 font-heading text-6xl font-bold leading-[1.0] tracking-tight sm:text-7xl lg:text-8xl">
               {profile.firstName}
               <br />
               <span className="brand-grad-text">{profile.lastName}.</span>
