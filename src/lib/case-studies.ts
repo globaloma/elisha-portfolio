@@ -34,8 +34,13 @@ export type CaseStudy = {
   intro: string;
   /** Right-column blurb above the Selected Designs images. */
   designsIntro: string;
-  /** "full" = render number + title + explanation chrome around bare images; "none" = images already carry their own labels. */
-  designsChrome: "full" | "none";
+  /**
+   * How much chrome to render around each design image:
+   * - "full": number + title + lettered explanation (images are bare, no baked labels).
+   * - "numbered": number + lettered explanation, but no title (images already carry their own title label).
+   * - "none": image only (images carry all their own labels and text).
+   */
+  designsChrome: "full" | "numbered" | "none";
   heroImage: string;
   heroW: number;
   heroH: number;
@@ -162,7 +167,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     theme: "light",
     designsIntro:
       "Here are some selected designs for LocalBites, which includes the splash & onboarding, customer dashboard, vendor dashboard and so on.",
-    designsChrome: "none",
+    designsChrome: "numbered",
     intro:
       "A mobile app designed for Nigerian food vendors, helping users order their local dishes from their favourite vendors with ease.",
     heroImage: img("localbite", "hero.png"),
@@ -188,55 +193,99 @@ export const caseStudies: Record<string, CaseStudy> = {
     designs: [
       {
         n: "01",
-        title: "Customer Onboarding",
+        title: "Splash & Onboarding",
         image: img("localbite", "design-01.png"),
         w: 838,
         h: 550,
-        desc: "The onboarding experience introduces users to LocalBites and its goal of making local food easier to discover and order. The splash screen establishes the brand identity, while the welcome screen communicates the app's core value. Users can then choose whether to register as a customer or a vendor, and a simple, secure registration flow lets customers create an account and start ordering.",
+        bullets: [
+          {
+            label: "Splash & onboarding",
+            text: "The onboarding experience introduces users to LocalBite and its goal of making local food easier to discover and order. The splash screen establishes the brand identity, while the welcome screen communicates the app core value. Users can then choose whether to register as a customer or a vendor, providing a clear starting point for both user journey.",
+          },
+          {
+            label: "User Registration & Login",
+            text: "I designed straightforward account creation and authentication flow that allows customers to register, verify their phone number, and access their accounts. The login screen supports returning users, while the success screen provides clear feedback when registration is complete. Together these screens create a familiar and structured entry experience for customers joining LocalBites.",
+          },
+        ],
       },
       {
         n: "02",
-        title: "Vendor Onboarding",
+        title: "Vendor Registration & Login",
         image: img("localbite", "design-02.png"),
         w: 838,
         h: 521,
-        desc: "A dedicated registration and authentication flow for food vendors. The process guides vendors through setting up their business profiles, providing contact information, adding their business address, and creating secure login credentials — divided into manageable steps to make business setup easier to follow.",
+        bullets: [
+          {
+            label: "Vendor Registration & Login",
+            text: "I designed a dedicated and authentication flow for food vendors on LocalBite. The process guides vendors through setting up their business profiles, providing contact information, adding their business address, and creating secure login credentials. The registration journey is divided into manageable steps to make business setup easier to follow. Returning vendors can log into access their accounts, while the confirmation screen provides feedback when registration is successful.",
+          },
+        ],
       },
       {
         n: "03",
-        title: "Customer Discovery",
+        title: "Customer discovery",
         image: img("localbite", "design-03.png"),
         w: 838,
         h: 521,
         bullets: [
-          { label: "Home Screen – Discover", text: "Introduces customers to popular dishes, food categories, and nearby restaurants as a starting point for exploring local food." },
-          { label: "Dish Discovery – Explore", text: "Customers browse food categories and view dishes with prices, ratings, and vendor information before adding items to the cart." },
-          { label: "Restaurant Menu – Choose", text: "Customers view a vendor's location, opening hours, available dishes and prices, then add preferred meals to the cart." },
+          {
+            label: "Home Screen - Discover",
+            text: "Introduces customers to popular dishes, food categories, and nearby restaurants, providing a starting point for exploring local food.",
+          },
+          {
+            label: "Dish Discovery - Explore",
+            text: "Customers can browse food categories and view dishes with prices, ratings, and vendor information before adding items to their cart.",
+          },
+          {
+            label: "Restaurant Menu - Choose",
+            text: "Customer's can view a vendor's location, opening hours, available dishes, and prices, then add their preferred meals to cart.",
+          },
         ],
       },
       {
         n: "04",
-        title: "Customer Checkout",
+        title: "Customer checkout",
         image: img("localbite", "design-04.png"),
         w: 838,
         h: 521,
         bullets: [
-          { label: "Cart Screen", text: "Users review their selected dishes and quantities and see the order total before checkout." },
-          { label: "Checkout Screen", text: "Users review the total and delivery fee, and enter their delivery details." },
-          { label: "WhatsApp Screen", text: "The order details are prepared into a message to the vendor, where the customer confirms availability and arranges payment." },
+          {
+            label: "Cart Screen",
+            text: "This screen allows users to review their selected dishes and quantities. They can also see the total of their orders and proceed to checkout.",
+          },
+          {
+            label: "Checkout Screen",
+            text: "On this checkout screen the users review the total, delivery fee, and enter their delivery details as shown on the screen.",
+          },
+          {
+            label: "WhatsApp Screen",
+            text: "The order details are prepared in a message to the vendor, where the customer can confirm availability and arrange payment.",
+          },
         ],
       },
       {
         n: "05",
-        title: "Vendor Management",
+        title: "Vendor management",
         image: img("localbite", "design-05.png"),
         w: 838,
         h: 521,
         bullets: [
-          { label: "Vendor Dashboard", text: "A quick snapshot of the business — order totals, pending and completed orders, recent activity, and the current subscription plan." },
-          { label: "Order Management", text: "Vendors filter orders by status, review summaries, and mark orders as completed once fulfilled." },
-          { label: "Order Details", text: "Customer contact information, delivery address, ordered items, and cost breakdown in one view." },
-          { label: "Menu Management", text: "Vendors add new dishes, update prices and descriptions, upload food images, and remove unavailable items." },
+          {
+            label: "Vendor Dashboard",
+            text: "The dashboard gives vendors a quick snapshot of their business, including order totals, pending and completed orders, recent activity, and their current subscription plan.",
+          },
+          {
+            label: "Order Management Screen",
+            text: "Allows vendors to filter orders by status, review order summaries, and mark orders as completed once they have been fulfilled.",
+          },
+          {
+            label: "Order Details Screen",
+            text: "Presents customer contact information, delivery address, ordered items, and cost breakdown in one view, helping vendors understand each order before fulfilment.",
+          },
+          {
+            label: "Menu Management Screen",
+            text: "Enables vendors to maintain their menus by adding new dishes, updating new prices and descriptions, uploading food images, and removing unavailable items.",
+          },
         ],
       },
     ],
@@ -293,10 +342,15 @@ export const caseStudies: Record<string, CaseStudy> = {
         image: img("voltpass", "design-01.png"),
         w: 838,
         h: 550,
-        desc: "The splash screen introduces VoltPass through a minimal dark interface, with the brand name and lighting symbol at the centre. The onboarding screens introduce the idea of smarter living through a visual of a modern home and the message “Experience the Future of smart living”.",
         bullets: [
-          { label: "Splash Screen", text: "Establishes the app's identity and creates a consistent starting point for the user journey." },
-          { label: "Onboarding Screen", text: "The slide-to-start interaction gives users a clear action to begin their journey into the app." },
+          {
+            label: "Splash Screen",
+            text: "The splash screen introduces VoltPass through a minimal dark interface, with the brand name and lighting symbol positioned prominently at the centre. The restrained layout establishes the app's identity and creates a consistent starting point for user journey.",
+          },
+          {
+            label: "Onboarding Screen",
+            text: "The onboarding screen introduces the idea of smarter living through a visual of a modern home and the message 'Experience the Future of smart living'. The slide-to-start interaction gives users a clear action to begin their journey into the application.",
+          },
         ],
       },
       {
@@ -305,11 +359,19 @@ export const caseStudies: Record<string, CaseStudy> = {
         image: img("voltpass", "design-02.png"),
         w: 838,
         h: 521,
-        desc: "The home screen gives users a centralized view of their smart sockets across different rooms. Users can switch between rooms, check active socket counts, monitor energy usage, and access individual socket controls from one dashboard.",
         bullets: [
-          { label: "Home Screen", text: "Socket control across rooms." },
-          { label: "Power Consumption", text: "Energy insights and usage trends." },
-          { label: "Room Overview", text: "Room-based management." },
+          {
+            label: "Home Screen - Socket Control",
+            text: "The home screen gives users a centralized view of their smart sockets across different rooms. Users can switch between rooms, check active socket counts, monitor energy usage, and access individual socket controls from one dashboard.",
+          },
+          {
+            label: "Power Consumption - Energy Insights",
+            text: "The power consumption screen helps users understand how much energy their connected sockets are using over a selected period. A bar chart presents usage trends, allowing users to compare consumption across dates and make more informed decisions about their electricity usage.",
+          },
+          {
+            label: "Room Overview - Room Based Management",
+            text: "The rooms screen organizes connected sockets by location, such as bedroom, kitchen, and living room. Each room displays its active socket count and energy usage, helping users understand where their electricity is being consumed and manage their devices more conveniently.",
+          },
         ],
       },
       {
@@ -318,11 +380,19 @@ export const caseStudies: Record<string, CaseStudy> = {
         image: img("voltpass", "design-03.png"),
         w: 838,
         h: 521,
-        desc: "The rooms screen organizes connected sockets by location, such as bedroom, kitchen, and living room. Each room displays its active socket count and energy usage, helping users understand where their electricity is being consumed and manage their devices more conveniently.",
         bullets: [
-          { label: "Rooms Overview", text: "Organized by location." },
-          { label: "Room Socket Management", text: "Individual control." },
-          { label: "Room Scheduling", text: "Automated power management." },
+          {
+            label: "Rooms Overview - Organized by Location",
+            text: "The rooms screen organizes smart sockets by areas of the home, including the bedroom, kitchen, and living room. Users can view the number of active sockets and the current energy usage for each room, making it easier to understand and manage their home's electricity consumption.",
+          },
+          {
+            label: "Room Socket Management - Individual Control",
+            text: "Within a selected room, users can view and control the sockets assigned to that space. Each socket has an independent on/off control, while editing and deletion options allows users to manage their connected devices more conveniently.",
+          },
+          {
+            label: "Socket Scheduling - Automated Power Management",
+            text: "The socket settings screen allows users to assign a name, select a room, and configure a schedule with specific start and stop times. This helps users automate socket operation, such as switching off selected devices when they are not expected to be at home, reducing unnecessary power usage and making everyday management more convenient.",
+          },
         ],
       },
       {
@@ -331,11 +401,23 @@ export const caseStudies: Record<string, CaseStudy> = {
         image: img("voltpass", "design-04.png"),
         w: 838,
         h: 558,
-        desc: "The socket settings screen allows users to assign a name, select a room, and configure a schedule with specific start and stop times. This helps users automate socket operation — such as switching off selected devices when they are not expected to be home — reducing unnecessary power usage.",
         bullets: [
-          { label: "Add New", text: "Quick access to add a socket or room." },
-          { label: "Socket Discovery", text: "Scan and select nearby compatible sockets." },
-          { label: "Room Setup", text: "Name, room assignment and personalization." },
+          {
+            label: "Add New - Quick Access",
+            text: "Users tap the plus icon on the home screen to open a simple menu where they choose to add a socket or create a room.",
+          },
+          {
+            label: "Socket Discovery & Selection",
+            text: "The app searches for nearby compatible sockets and displays available device names. Users select the correct socket and connect it to VoltPass.",
+          },
+          {
+            label: "Room Setup - Personalization",
+            text: "Users can add a room picture, name the socket, and assign it to a room, keeping their smart home devices organized.",
+          },
+          {
+            label: "Room Setup - Personalization",
+            text: "A confirmation screen lets users know when a socket has been successfully added, providing a clear finish to setup process.",
+          },
         ],
       },
     ],

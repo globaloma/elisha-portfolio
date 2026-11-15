@@ -140,7 +140,8 @@ export default async function CaseStudyPage({
   const nextCase = caseStudies[cs.next];
   const isDark = cs.theme === "dark";
   const title = cs.displayName ?? cs.shortName;
-  const showChrome = cs.designsChrome === "full";
+  const showChrome = cs.designsChrome !== "none";
+  const showTitle = cs.designsChrome === "full";
 
   return (
     <Shell dark={isDark}>
@@ -264,9 +265,11 @@ export default async function CaseStudyPage({
                     <span className="font-heading text-3xl font-bold text-brand sm:text-4xl">
                       {d.n}.
                     </span>
-                    <h3 className="font-heading text-xl font-semibold tracking-tight sm:text-3xl">
-                      {d.title}
-                    </h3>
+                    {showTitle ? (
+                      <h3 className="font-heading text-xl font-semibold tracking-tight sm:text-3xl">
+                        {d.title}
+                      </h3>
+                    ) : null}
                   </div>
                 ) : null}
                 <figure className={showChrome ? "mt-6" : ""}>
@@ -278,20 +281,23 @@ export default async function CaseStudyPage({
                       <p className="text-[15px] leading-relaxed text-muted-foreground">{d.desc}</p>
                     ) : null}
                     {d.bullets?.length ? (
-                      <>
-                        <p className="mt-5 font-semibold">Brief explanation</p>
-                        <div className="mt-3 space-y-2">
-                          {d.bullets.map((b) => (
-                            <p key={b.label} className="text-[15px] leading-relaxed">
-                              <span className="font-semibold text-foreground">{b.label}:</span>{" "}
-                              <span className="text-muted-foreground">{b.text}</span>
-                            </p>
-                          ))}
-                        </div>
-                      </>
+                      <div className={cn("space-y-5", d.desc ? "mt-5" : "")}>
+                        {d.bullets.map((b, i) => (
+                          <div key={`${d.n}-${i}`}>
+                            <h4 className="font-heading text-lg font-semibold tracking-tight sm:text-xl">
+                              ({String.fromCharCode(65 + i)}). {b.label}
+                            </h4>
+                            {b.text ? (
+                              <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
+                                {b.text}
+                              </p>
+                            ) : null}
+                          </div>
+                        ))}
+                      </div>
                     ) : null}
                     {d.focus ? (
-                      <p className="mt-4 text-[15px] leading-relaxed">
+                      <p className="mt-5 text-[15px] leading-relaxed">
                         <span className="font-semibold">Design focus:</span>{" "}
                         <span className="text-muted-foreground">{d.focus}</span>
                       </p>
