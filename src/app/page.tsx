@@ -47,8 +47,11 @@ export default function Home() {
 
   return (
     <Shell>
-      {/* ============================== HERO ============================== */}
-      <section id="home" className="relative scroll-mt-24 pt-2">
+      {/* ============================== HERO (dark) ============================== */}
+      <section
+        id="home"
+        className="theme-dark relative -mx-5 -mt-24 overflow-hidden rounded-b-[2rem] bg-[color:var(--background)] px-5 pb-16 pt-28 text-foreground scroll-mt-24 sm:-mx-8 sm:px-8 lg:-mt-16 lg:pb-20 lg:pt-20"
+      >
         <span
           aria-hidden
           className="pointer-events-none absolute -top-6 right-0 select-none font-heading text-[22vw] font-black leading-none text-foreground/[0.045] lg:text-[12rem]"
@@ -58,8 +61,11 @@ export default function Home() {
 
         <div className="relative grid gap-10 lg:grid-cols-[1fr_auto] lg:items-start">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-foreground/[0.03] px-3.5 py-1.5 text-xs font-medium text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full" style={{ background: "var(--brand)" }} />
+            <span
+              className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-brand"
+              style={{ background: "color-mix(in oklab, var(--brand) 14%, transparent)" }}
+            >
+              <span className="h-1.5 w-1.5 rounded-sm" style={{ background: "var(--brand)" }} />
               {profile.tagline}
             </span>
 

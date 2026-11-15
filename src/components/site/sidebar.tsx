@@ -51,18 +51,9 @@ export function Sidebar() {
   }
 
   const Logo = (
-    <Link href="/#home" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
-      <span
-        className="grid h-10 w-10 place-items-center rounded-xl text-base font-bold text-[color:var(--brand-foreground)] font-heading"
-        style={{ background: "var(--brand)" }}
-      >
-        EI
-      </span>
-      <span className="leading-tight">
-        <span className="block font-heading text-[15px] font-semibold">
-          <span className="text-brand">Elisha</span> Ibeabuchi
-        </span>
-        <span className="block text-[11px] text-muted-foreground">Designer · Developer</span>
+    <Link href="/#home" className="group flex items-center" onClick={() => setOpen(false)}>
+      <span className="font-heading text-lg font-bold tracking-tight text-brand">
+        Elisha Ibeabuchi
       </span>
     </Link>
   );
@@ -77,20 +68,13 @@ export function Sidebar() {
             href={item.href}
             onClick={() => setOpen(false)}
             className={cn(
-              "group relative flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium transition-colors",
+              "group flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium transition-colors",
               act
-                ? "text-foreground"
-                : "text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
+                ? "border border-border bg-[color:var(--surface-2)] text-foreground"
+                : "border border-transparent text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
             )}
-            style={act ? { background: "color-mix(in oklab, var(--brand) 14%, transparent)" } : undefined}
             aria-current={act ? "page" : undefined}
           >
-            {act && (
-              <span
-                className="absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-full"
-                style={{ background: "var(--brand)" }}
-              />
-            )}
             <Icon
               name={item.icon}
               className={cn("size-[18px] transition-colors", act ? "text-brand" : "")}
@@ -124,14 +108,14 @@ export function Sidebar() {
   return (
     <>
       {/* ---------- Desktop sidebar ---------- */}
-      <aside className="fixed inset-y-0 left-0 z-40 hidden w-[288px] flex-col gap-8 border-r border-border bg-[color:var(--surface)]/60 px-6 py-8 backdrop-blur-xl lg:flex">
+      <aside className="theme-dark fixed inset-y-0 left-0 z-40 hidden w-[288px] flex-col gap-8 border-r border-border bg-[color:var(--background)] px-6 py-8 text-foreground lg:flex">
         {Logo}
         {NavList}
         {Contact}
       </aside>
 
       {/* ---------- Mobile top bar ---------- */}
-      <header className="fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b border-border bg-[color:var(--background)]/80 px-4 py-3 backdrop-blur-xl lg:hidden">
+      <header className="theme-dark fixed inset-x-0 top-0 z-40 flex items-center justify-between border-b border-border bg-[color:var(--background)]/95 px-4 py-3 text-foreground backdrop-blur-xl lg:hidden">
         {Logo}
         <button
           type="button"
@@ -154,7 +138,7 @@ export function Sidebar() {
       />
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-40 flex w-[82%] max-w-[320px] flex-col gap-8 border-r border-border bg-[color:var(--surface)] px-6 pb-8 pt-20 transition-transform duration-300 lg:hidden",
+          "theme-dark fixed inset-y-0 left-0 z-40 flex w-[82%] max-w-[320px] flex-col gap-8 border-r border-border bg-[color:var(--background)] px-6 pb-8 pt-20 text-foreground transition-transform duration-300 lg:hidden",
           open ? "translate-x-0" : "-translate-x-full"
         )}
       >

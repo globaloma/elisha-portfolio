@@ -98,11 +98,6 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
-    /* White hero at the top of the page fading into the warm cream body */
-    background-image:
-      linear-gradient(180deg, #ffffff 0, #ffffff 19rem, var(--background) 46rem),
-      radial-gradient(55rem 55rem at 88% 2rem, color-mix(in oklab, var(--brand) 6%, transparent), transparent 60%);
-    background-repeat: no-repeat;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-heading), Georgia, serif;
@@ -114,8 +109,37 @@
 }
 
 @layer utilities {
+  /* Dark theme scope — sidebar, home hero, dark case studies. --brand defaults
+     to cyan but is overridden per-use (case accent for dark case studies). */
+  .theme-dark {
+    --background: #0e0e0e;
+    --foreground: #f4f4f5;
+    --surface: #161616;
+    --surface-2: #202023;
+    --card: #161616;
+    --card-foreground: #f4f4f5;
+    --popover: #161616;
+    --popover-foreground: #f4f4f5;
+    --brand: #00e5ff;
+    --brand-foreground: #0d1117;
+    --primary: #00e5ff;
+    --primary-foreground: #0d1117;
+    --secondary: #202023;
+    --secondary-foreground: #f4f4f5;
+    --muted: #202023;
+    --muted-foreground: #a1a1aa;
+    --accent: #202023;
+    --accent-foreground: #f4f4f5;
+    --border: rgba(255, 255, 255, 0.1);
+    --input: rgba(255, 255, 255, 0.16);
+    --ring: #00e5ff;
+  }
   .font-heading {
     font-family: var(--font-heading), Georgia, serif;
+  }
+  /* Dark case studies colour their section headings with the case accent. */
+  .case-accent-headings h2 {
+    color: var(--brand);
   }
   .card-surface {
     background: linear-gradient(180deg, color-mix(in oklab, var(--surface) 92%, #fff 1%), var(--surface));

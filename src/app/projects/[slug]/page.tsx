@@ -6,6 +6,7 @@ import { Footer } from "@/components/site/footer";
 import { ContactSection } from "@/components/site/contact-section";
 import { SectionHeading, Eyebrow } from "@/components/site/section-heading";
 import { Icon } from "@/components/icon";
+import { cn } from "@/lib/utils";
 import { caseStudies, caseStudySlugs, type CaseStudy, type Design } from "@/lib/case-studies";
 
 export function generateStaticParams() {
@@ -100,23 +101,34 @@ export default async function CaseStudyPage({
 
   const nextCase = caseStudies[cs.next];
 
-  return (
-    <Shell>
-      {/* case accent is scoped to the case content only — sidebar, contact and footer stay on the global teal */}
-      <div style={{ ["--brand" as string]: cs.brand }}>
-        {/* back */}
-        <Link
-          href="/projects"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <Icon name="arrow-right" className="size-4 rotate-180" />
-          All projects
-        </Link>
+  const isDark = cs.theme === "dark";
 
+  return (
+    <Shell dark={isDark}>
+      {/* Back bar — uses the site brand (cyan on dark pages, teal on light) */}
+      <Link
+        href="/projects"
+        className="relative flex items-center justify-center rounded-2xl border border-border px-5 py-4 text-sm font-semibold text-brand transition-[filter] hover:brightness-110"
+        style={{ background: "color-mix(in oklab, var(--brand) 12%, var(--surface))" }}
+      >
+        <Icon name="arrow-right" className="absolute left-5 size-5 rotate-180" />
+        {cs.shortName} Case Study
+      </Link>
+
+      {/* case accent is scoped to the case content; sidebar/contact/footer keep the site brand */}
+      <div
+        className={cn("mt-10", isDark && "case-accent-headings")}
+        style={{ ["--brand" as string]: cs.brand }}
+      >
         {/* title block */}
-        <header className="mt-6">
+        <header>
           <Eyebrow>{cs.category}</Eyebrow>
-          <h1 className="mt-4 font-heading text-4xl font-bold tracking-tight sm:text-5xl">
+          <h1
+            className={cn(
+              "mt-4 font-heading text-4xl font-bold tracking-tight sm:text-5xl",
+              isDark && "text-brand",
+            )}
+          >
             {cs.shortName}
           </h1>
           <p className="mt-2 text-lg font-medium text-brand">{cs.tagline}</p>
