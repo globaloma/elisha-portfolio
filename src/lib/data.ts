@@ -273,9 +273,9 @@ export const projects: Project[] = [
 ];
 
 export const navItems = [
-  { label: "Home", href: "/#home", icon: "home", section: "home" },
-  { label: "About", href: "/#about", icon: "user", section: "about" },
-  { label: "Projects", href: "/projects", icon: "layout-grid", section: "projects" },
-  { label: "Skills & Capabilities", href: "/#skills", icon: "sparkles", section: "skills" },
-  { label: "Contact", href: "/#contact", icon: "phone", section: "contact" },
+  { label: "Home", href: "/#home", icon: "home-solid", section: "home" },
+  { label: "About", href: "/#about", icon: "user-solid", section: "about" },
+  { label: "Projects", href: "/projects", icon: "grid-solid", section: "projects" },
+  { label: "Skills & Capabilities", href: "/#skills", icon: "chevrons-left-solid", section: "skills" },
+  { label: "Contact", href: "/#contact", icon: "phone-solid", section: "contact" },
 ] as const;

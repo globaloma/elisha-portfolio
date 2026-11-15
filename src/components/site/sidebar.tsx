@@ -108,7 +108,7 @@ export function Sidebar() {
   return (
     <>
       {/* ---------- Desktop sidebar ---------- */}
-      <aside className="theme-dark fixed inset-y-0 left-0 z-40 hidden w-[288px] flex-col gap-8 border-r border-border bg-[color:var(--background)] px-6 py-8 text-foreground lg:flex">
+      <aside className="theme-dark fixed inset-y-0 left-0 z-40 hidden w-[288px] flex-col gap-8 bg-[color:var(--background)] px-6 py-8 text-foreground lg:flex">
         {Logo}
         {NavList}
         {Contact}
