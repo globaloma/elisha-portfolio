@@ -40,6 +40,7 @@ import {
   Monitor,
   Contrast,
   Compass,
+  Orbit,
   type LucideProps,
 } from "lucide-react";
 import { type ReactElement, type ReactNode } from "react";
@@ -91,6 +92,33 @@ const PhoneSolid = (p: LucideProps) => (
     <path d="M19.95 21q-3.1 0-6.15-1.36t-5.55-3.86q-2.5-2.5-3.86-5.55T3 4.05q0-.45.3-.75t.75-.3h4.05q.35 0 .62.24t.33.56l.65 3.5q.05.4-.02.68t-.28.47L6.98 11.1q1 1.85 2.55 3.38t3.52 2.52l2.35-2.35q.22-.22.58-.33t.72-.07l3.45.7q.35.08.58.34T21 16v4.95q0 .45-.3.75t-.75.3Z" />
   </Solid>
 );
+const FolderSolid = (p: LucideProps) => (
+  <Solid {...p}>
+    <path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h3.9a2 2 0 0 1 1.5.68L11.3 6H19a2 2 0 0 1 2 2v.5H2v-2Z" />
+    <path d="M2.2 10h19.3a1 1 0 0 1 .98 1.22l-1.4 6.3A2 2 0 0 1 19.13 19H4.87a2 2 0 0 1-1.95-1.48L1.24 11.2A1 1 0 0 1 2.2 10Z" />
+  </Solid>
+);
+const ToolboxSolid = (p: LucideProps) => (
+  <Solid {...p}>
+    <path d="M9 2.5A1.5 1.5 0 0 0 7.5 4v1.5h2V4.4h5v1.1h2V4A1.5 1.5 0 0 0 15 2.5H9Z" />
+    <path d="M3 6.5A2 2 0 0 0 1 8.5V11h7v-.5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v.5h7V8.5a2 2 0 0 0-2-2H3Z" />
+    <path d="M16 12.5a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V12H1v6.5a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V12h-7v.5Z" />
+  </Solid>
+);
+const BarChartSolid = (p: LucideProps) => (
+  <Solid {...p}>
+    <rect x="3" y="12" width="4.2" height="8.5" rx="1.1" />
+    <rect x="9.9" y="7.5" width="4.2" height="13" rx="1.1" />
+    <rect x="16.8" y="3.5" width="4.2" height="17" rx="1.1" />
+  </Solid>
+);
+const GraduationCapSolid = (p: LucideProps) => (
+  <Solid {...p}>
+    <path d="M11.6 3.06a1 1 0 0 1 .8 0l9 3.9a1 1 0 0 1 0 1.84l-9 3.9a1 1 0 0 1-.8 0l-9-3.9a1 1 0 0 1 0-1.84l9-3.9Z" />
+    <path d="M6 11.1v3.3c0 .5.27.95.72 1.17 1.33.66 3.28 1.23 5.28 1.23s3.95-.57 5.28-1.23c.45-.22.72-.67.72-1.17v-3.3l-5.33 2.31a2 2 0 0 1-1.34 0L6 11.1Z" />
+    <path d="M20.5 9.2v4.55a.9.9 0 1 0 1.5 0V8.55l-1.5.65Z" />
+  </Solid>
+);
 
 const map = {
   home: Home,
@@ -134,11 +162,16 @@ const map = {
   monitor: Monitor,
   contrast: Contrast,
   compass: Compass,
+  orbit: Orbit,
   "home-solid": HomeSolid,
   "user-solid": UserSolid,
   "grid-solid": GridSolid,
   "chevrons-left-solid": ChevronsLeftSolid,
   "phone-solid": PhoneSolid,
+  "folder-solid": FolderSolid,
+  "toolbox-solid": ToolboxSolid,
+  "bar-chart-solid": BarChartSolid,
+  "graduation-cap-solid": GraduationCapSolid,
 } as const;
 
 export type IconName = keyof typeof map;

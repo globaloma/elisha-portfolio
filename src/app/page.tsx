@@ -90,7 +90,7 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-[color:var(--brand-foreground)] transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-[color:var(--brand-foreground)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_24px_-2px_rgba(0,229,255,0.5)]"
                 style={{ background: "var(--brand)" }}
               >
                 <Icon name="message-circle" className="size-4" />
@@ -98,7 +98,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 rounded-xl border border-border bg-foreground/[0.03] px-5 py-3 text-sm font-semibold transition-colors hover:border-foreground/20 hover:bg-foreground/[0.06]"
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-foreground/[0.03] px-5 py-3 text-sm font-semibold transition-colors hover:border-[color:var(--brand)]  hover:text-[color:var(--brand)]"
               >
                 <Icon name="layout-grid" className="size-4" />
                 Projects
@@ -106,7 +106,7 @@ export default function Home() {
               <a
                 href={profile.resumeHref}
                 download
-                className="inline-flex items-center gap-2 rounded-xl border border-border bg-foreground/[0.03] px-5 py-3 text-sm font-semibold transition-colors hover:border-foreground/20 hover:bg-foreground/[0.06]"
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-foreground/[0.03] px-5 py-3 text-sm font-semibold transition-colors hover:border-[color:var(--brand)]  hover:text-[color:var(--brand)]"
               >
                 <Icon name="download" className="size-4" />
                 Download Resume
@@ -119,10 +119,10 @@ export default function Home() {
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="flex-1 rounded-lg bg-[#17191a] px-3.5 py-2.5 text-center shadow-sm lg:w-28 lg:text-left"
+                className="flex-1 cursor-default rounded-lg bg-[#17191a] px-4 py-3.5 text-center shadow-sm ring-1 ring-white/5 transition-all duration-300 hover:-translate-y-0.5 hover:ring-[#00e5ff]/60 hover:shadow-[0_0_24px_-4px_rgba(0,229,255,0.5)] lg:w-32 lg:text-left"
               >
-                <div className="font-heading text-xl font-bold text-[color:var(--brand-bright)]">{s.value}</div>
-                <div className="mt-0.5 text-[11px] text-white/55">{s.label}</div>
+                <div className="font-heading text-2xl font-bold text-[color:var(--brand-bright)]">{s.value}</div>
+                <div className="mt-1 text-xs text-white/55">{s.label}</div>
               </div>
             ))}
           </div>
@@ -134,7 +134,7 @@ export default function Home() {
     >
       {/* ============================== ABOUT ============================== */}
       <section id="about" className="scroll-mt-24">
-        <SectionHeading icon="user" title="About Me" />
+        <SectionHeading icon="user-solid" title="About Me" />
         <div className="card-shadow mt-8 rounded-2xl bg-[color:var(--surface)] p-6 sm:p-8">
           <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:gap-10">
             <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
@@ -150,19 +150,14 @@ export default function Home() {
                     <span className="text-sm font-medium">{f.label}</span>
                   </>
                 );
+                const cardClass =
+                  "flex items-center gap-3 rounded-[10px] border border-transparent bg-[#e3ded7] px-4 py-3.5 transition-colors hover:border-[#006680]";
                 return "href" in f && f.href ? (
-                  <a
-                    key={f.label}
-                    href={f.href}
-                    className="flex items-center gap-3 rounded-[10px] bg-[color:var(--surface-2)] px-4 py-3.5 transition-colors hover:brightness-95"
-                  >
+                  <a key={f.label} href={f.href} className={cardClass}>
                     {inner}
                   </a>
                 ) : (
-                  <div
-                    key={f.label}
-                    className="flex items-center gap-3 rounded-[10px] bg-[color:var(--surface-2)] px-4 py-3.5"
-                  >
+                  <div key={f.label} className={cardClass}>
                     {inner}
                   </div>
                 );
@@ -174,7 +169,7 @@ export default function Home() {
 
       {/* ============================== SERVICES ============================== */}
       <section className="mt-24">
-        <SectionHeading icon="sparkles" title="Services" />
+        <SectionHeading icon="chevrons-left-solid" title="Services" />
         <div className="mt-8 grid gap-5 md:grid-cols-3">
           {services.map((s) => (
             <div
@@ -196,7 +191,7 @@ export default function Home() {
 
       {/* ============================== PROJECTS ============================== */}
       <section className="mt-24">
-        <SectionHeading icon="layout-grid" title="Projects" />
+        <SectionHeading icon="grid-solid" title="Projects" />
         <div className="mt-8 space-y-6">
           {featured.map((p) => (
             <ProjectCard key={p.slug} project={p} />
@@ -225,7 +220,7 @@ export default function Home() {
 
       {/* ============================== EXPERIENCE ============================== */}
       <section className="mt-24">
-        <SectionHeading icon="briefcase" title="Experience" />
+        <SectionHeading icon="folder-solid" title="Experience" />
         <div className="relative mt-8 space-y-5 pl-9">
           {/* timeline rail */}
           <span
@@ -275,7 +270,7 @@ export default function Home() {
 
       {/* ============================== CAPABILITIES (SKILLS) ============================== */}
       <section id="skills" className="mt-24 scroll-mt-24">
-        <SectionHeading icon="layers" title="My Capabilities" />
+        <SectionHeading icon="orbit" title="My Capabilities" />
         <div className="card-shadow mt-8 rounded-2xl bg-[color:var(--surface)] p-6 sm:p-10">
           <div className="divide-y divide-border">
             {capabilities.map((c) => (
@@ -298,13 +293,12 @@ export default function Home() {
 
         {/* Tools */}
         <div className="mt-10">
-          <SectionHeading icon="wrench" title="Tools & Technology" />
+          <SectionHeading icon="toolbox-solid" title="Tools & Technology" />
           <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
             {tools.map((t) => (
               <div
                 key={t}
-                className="rounded-[10px] bg-[color:var(--surface-2)] px-4 py-3.5 text-sm font-semibold transition-colors"
-                style={{ border: "1px solid color-mix(in oklab, var(--brand) 22%, var(--border))" }}
+                className="rounded-[10px] border border-[#006680] bg-[#e9e5dd] px-4 py-3.5 text-sm font-semibold transition-shadow duration-300 hover:shadow-[inset_3px_0_0_0_#006680,inset_0_-3px_0_0_#006680]"
               >
                 {t}
               </div>
@@ -314,16 +308,15 @@ export default function Home() {
 
         {/* Education */}
         <div className="mt-10">
-          <SectionHeading icon="graduation-cap" title="Education & Certs" />
+          <SectionHeading icon="graduation-cap-solid" title="Education & Certs" />
           <div className="mt-6 grid gap-3">
             {education.map((e) => (
               <div
                 key={e.title}
-                className="flex items-start gap-4 rounded-2xl bg-[color:var(--surface-2)] p-5"
+                className="flex items-start gap-4 rounded-2xl bg-[#e9e5dd] p-5 transition-shadow duration-300 hover:shadow-[inset_4px_0_0_0_#006680,inset_0_-4px_0_0_#006680]"
               >
                 <span
-                  className="grid size-10 shrink-0 place-items-center rounded-lg"
-                  style={{ background: "color-mix(in oklab, var(--brand) 12%, var(--surface))" }}
+                  className="grid size-10 shrink-0 place-items-center rounded-lg border border-[#74a5ae] bg-[#c6d2cf]"
                 >
                   <Icon name={e.icon} className="size-5 text-brand" />
                 </span>
@@ -340,7 +333,7 @@ export default function Home() {
 
       {/* ============================== CURRENTLY BUILDING ============================== */}
       <section className="mt-24">
-        <SectionHeading icon="hammer" title="Currently Building" />
+        <SectionHeading icon="bar-chart-solid" title="Currently Building" />
         <div className="card-shadow mt-8 grid overflow-hidden rounded-2xl bg-[color:var(--surface)] md:grid-cols-[minmax(0,340px)_1fr]">
             <div className="relative min-h-[260px] overflow-hidden md:min-h-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}

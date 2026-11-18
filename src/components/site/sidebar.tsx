@@ -71,13 +71,13 @@ export function Sidebar() {
               "group flex items-center gap-3 rounded-[10px] px-3.5 py-2.5 text-sm font-medium transition-colors",
               act
                 ? "border border-border bg-[color:var(--surface-2)] text-foreground"
-                : "border border-transparent text-muted-foreground hover:bg-foreground/[0.05] hover:text-foreground"
+                : "border border-transparent text-muted-foreground hover:border-border hover:bg-[color:var(--surface-2)] hover:text-foreground"
             )}
             aria-current={act ? "page" : undefined}
           >
             <Icon
               name={item.icon}
-              className={cn("size-[18px] transition-colors", act ? "text-brand" : "")}
+              className={cn("size-[18px] transition-colors", act ? "text-brand" : "group-hover:text-brand")}
             />
             <span>{item.label}</span>
           </Link>

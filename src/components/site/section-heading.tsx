@@ -15,8 +15,8 @@ export function SectionHeading({
   return (
     <div className={cn("flex items-center gap-4", className)}>
       <span
-        className="grid size-9 shrink-0 place-items-center rounded-lg border border-border"
-        style={{ background: "color-mix(in oklab, var(--brand) 14%, var(--surface))" }}
+        className="grid size-9 shrink-0 place-items-center rounded-[4px] border"
+        style={{ background: "var(--chip-bg)", borderColor: "var(--chip-border)" }}
       >
         <Icon name={icon} className="size-[18px] text-brand" />
       </span>

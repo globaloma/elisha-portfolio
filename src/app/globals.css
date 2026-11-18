@@ -83,6 +83,13 @@
   --border: rgba(27, 23, 20, 0.1);
   --input: rgba(27, 23, 20, 0.16);
   --ring: #0c6680;
+
+  /* Section-heading icon chip (sampled exactly from the Figma) */
+  --chip-bg: #d0dbd8;
+  --chip-border: #7aabb4;
+
+  /* Muted card fill (Contact / info cards), sampled from the Figma */
+  --card-muted: #e9e5dd;
 }
 
 /* brand overrides supplied per case-study via inline style (--brand / --brand-soft) */
@@ -133,6 +140,11 @@
     --border: rgba(255, 255, 255, 0.1);
     --input: rgba(255, 255, 255, 0.16);
     --ring: #00e5ff;
+
+    /* Dark-theme chip derives from the (cyan) brand on the dark surface */
+    --chip-bg: color-mix(in oklab, var(--brand) 16%, var(--surface));
+    --chip-border: color-mix(in oklab, var(--brand) 42%, var(--surface));
+    --card-muted: var(--surface-2);
   }
   .font-heading {
     font-family: var(--font-heading), Georgia, serif;

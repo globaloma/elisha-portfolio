@@ -12,7 +12,7 @@ export function ContactSection({ id }: { id?: string }) {
 
   return (
     <section id={id} className="mt-24 scroll-mt-24">
-      <SectionHeading icon="phone" title="Contact" />
+      <SectionHeading icon="phone-solid" title="Contact" />
       <div className="mt-8 grid gap-6 lg:grid-cols-[1.3fr_1fr]">
         <div className="flex flex-col gap-3">
           {cards.map((c) => {
@@ -27,16 +27,14 @@ export function ContactSection({ id }: { id?: string }) {
                 </div>
               </>
             );
+            const cardClass =
+              "flex items-center gap-4 rounded-2xl bg-[color:var(--card-muted)] px-5 py-4 transition-shadow duration-300 hover:shadow-[0_2px_4px_rgba(27,23,20,0.05),0_16px_32px_-16px_rgba(27,23,20,0.22)]";
             return c.href ? (
-              <a
-                key={c.label}
-                href={c.href}
-                className="flex items-center gap-4 rounded-2xl bg-[color:var(--surface-2)] px-5 py-4 transition-[filter] hover:brightness-95"
-              >
+              <a key={c.label} href={c.href} className={cardClass}>
                 {body}
               </a>
             ) : (
-              <div key={c.label} className="flex items-center gap-4 rounded-2xl bg-[color:var(--surface-2)] px-5 py-4">
+              <div key={c.label} className={cardClass}>
                 {body}
               </div>
             );
@@ -61,8 +59,7 @@ export function ContactSection({ id }: { id?: string }) {
           </p>
           <a
             href={profile.whatsappHref}
-            className="mt-5 inline-flex w-fit items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-[color:var(--brand-foreground)] transition-opacity hover:opacity-90"
-            style={{ background: "var(--brand)" }}
+            className="mt-5 inline-flex w-fit items-center gap-2 rounded-xl border border-[color:var(--brand)] bg-[color:var(--brand)] px-5 py-3 text-sm font-semibold text-[color:var(--brand-foreground)] transition-colors duration-300 hover:bg-transparent hover:text-[color:var(--brand)]"
           >
             <Icon name="message-circle" className="size-4" />
             Let&apos;s Talk
