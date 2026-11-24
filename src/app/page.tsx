@@ -54,7 +54,7 @@ export default function Home() {
           id="home"
           className="theme-dark relative overflow-hidden bg-[color:var(--background)] text-foreground scroll-mt-24"
         >
-          <div className="mx-0 w-full max-w-5xl px-6 py-24 sm:px-10 sm:py-28 lg:py-52 lg:pl-16 lg:pr-10">
+          <div className="mx-auto w-full max-w-6xl px-6 py-24 sm:px-10 sm:py-28 lg:py-52 lg:pl-16 lg:pr-10 2xl:max-w-7xl">
             <div className="relative">
               <span
                 aria-hidden

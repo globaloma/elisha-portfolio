@@ -30,7 +30,7 @@ export function Shell({
         {hero}
         <div
           className={cn(
-            "w-full max-w-5xl px-5 pb-24 sm:px-8",
+            "mx-auto w-full max-w-6xl px-5 pb-24 sm:px-8 xl:px-10 2xl:max-w-7xl",
             hero ? "pt-16 lg:pt-20" : "pt-24 lg:pt-16",
           )}
         >
