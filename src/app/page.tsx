@@ -336,14 +336,14 @@ export default function Home() {
       <section className="mt-24">
         <SectionHeading icon="bar-chart-solid" title="Currently Building" />
         <div className="card-shadow mt-8 grid overflow-hidden rounded-2xl bg-[color:var(--surface)] md:grid-cols-[minmax(0,340px)_1fr]">
-            <div className="relative min-h-[260px] overflow-hidden md:min-h-0">
+            <div className="relative overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={currentlyBuilding.image}
                 alt={`${currentlyBuilding.name} — preview`}
                 loading="lazy"
                 decoding="async"
-                className="absolute inset-0 h-full w-full object-cover"
+                className="block h-auto w-full object-cover md:absolute md:inset-0 md:h-full"
               />
             </div>
             <div className="p-6 sm:p-8">
