@@ -18,7 +18,12 @@ export function ProjectCard({ project }: { project: Project }) {
             alt={`${project.name} — preview`}
             loading="lazy"
             decoding="async"
-            className="block h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            className={cn(
+              "block h-auto w-full object-cover transition-transform duration-500",
+              project.imageZoom
+                ? "scale-[1.16] group-hover:scale-[1.19]"
+                : "group-hover:scale-[1.02]",
+            )}
           />
         </div>
 

@@ -193,6 +193,8 @@ export type Project = {
   accentName: string;
   cta: { label: string; href: string };
   image: string;
+  /** Gently zoom the card image so a loose 3D-render mockup fills more of its cell. */
+  imageZoom?: boolean;
   hasCaseStudy: boolean;
   featured?: boolean;
 };
@@ -240,6 +242,7 @@ export const projects: Project[] = [
     accentName: "orange",
     cta: { label: "View Project", href: "/projects/localbite" },
     image: "/case-studies/localbite/hero.png",
+    imageZoom: true,
     hasCaseStudy: true,
   },
   {
@@ -254,6 +257,7 @@ export const projects: Project[] = [
     accentName: "blue",
     cta: { label: "View Project", href: "/projects/voltpass" },
     image: "/case-studies/voltpass/hero.png",
+    imageZoom: true,
     hasCaseStudy: true,
   },
   {
@@ -268,6 +272,7 @@ export const projects: Project[] = [
     accentName: "amber",
     cta: { label: "View Project", href: "/projects/bookmaker" },
     image: "/case-studies/bookmaker/hero.png",
+    imageZoom: true,
     hasCaseStudy: true,
   },
 ];
