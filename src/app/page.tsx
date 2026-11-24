@@ -47,6 +47,7 @@ export default function Home() {
 
   return (
     <Shell
+      footer={<Footer />}
       hero={
         /* ===================== HERO (dark, full-bleed band) ===================== */
         <section
@@ -174,7 +175,7 @@ export default function Home() {
           {services.map((s) => (
             <div
               key={s.title}
-              className="group card-shadow rounded-2xl bg-[color:var(--surface)] p-6 transition-shadow hover:shadow-[0_2px_4px_rgba(27,23,20,0.05),0_18px_40px_-18px_rgba(27,23,20,0.24)]"
+              className="group card-shadow rounded-2xl border border-transparent bg-[color:var(--surface)] p-6 transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1 hover:border-[rgba(27,23,20,0.14)] hover:shadow-[0_2px_4px_rgba(27,23,20,0.05),0_18px_40px_-18px_rgba(27,23,20,0.24)]"
             >
               <span
                 className="grid size-12 place-items-center rounded-xl"
@@ -237,7 +238,7 @@ export default function Home() {
                   background: i === 0 ? "var(--brand)" : "color-mix(in oklab, var(--foreground) 28%, transparent)",
                 }}
               />
-              <div className="card-shadow rounded-2xl bg-[color:var(--surface)] p-6 sm:p-7">
+              <div className="card-shadow rounded-2xl border border-transparent bg-[color:var(--surface)] p-6 transition-[box-shadow,border-color] duration-300 ease-out hover:border-[rgba(27,23,20,0.14)] hover:shadow-[0_2px_4px_rgba(27,23,20,0.05),0_18px_40px_-18px_rgba(27,23,20,0.24)] sm:p-7">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
                     <h3 className="font-heading text-xl font-semibold">{job.role}</h3>
@@ -393,8 +394,6 @@ export default function Home() {
 
       {/* ============================== CONTACT ============================== */}
       <ContactSection id="contact" />
-
-      <Footer />
     </Shell>
   );
 }

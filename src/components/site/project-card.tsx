@@ -8,7 +8,7 @@ export function ProjectCard({ project }: { project: Project }) {
   const isExternal = /^https?:\/\//.test(project.cta.href);
   return (
     <article
-      className="group relative grid overflow-hidden rounded-2xl bg-[color:var(--surface)] card-shadow md:grid-cols-[minmax(0,0.92fr)_1fr] md:items-center"
+      className="group relative grid overflow-hidden rounded-2xl bg-[color:var(--surface)] card-shadow transition-shadow duration-300 ease-out hover:shadow-[0_2px_4px_rgba(27,23,20,0.05),0_18px_40px_-18px_rgba(27,23,20,0.24)] md:grid-cols-[minmax(0,0.92fr)_1fr] md:items-center"
     >
         {/* Visual — real exported design image, shown whole and full-bleed */}
         <div className="relative overflow-hidden">

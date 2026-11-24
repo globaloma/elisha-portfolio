@@ -145,7 +145,7 @@ export default async function CaseStudyPage({
   const lettered = cs.bulletStyle === "lettered";
 
   return (
-    <Shell dark={isDark}>
+    <Shell dark={isDark} footer={<Footer />}>
       {/* Back bar — uses the site brand (cyan on dark pages, teal on light) */}
       <Link
         href="/projects"
@@ -369,8 +369,6 @@ export default async function CaseStudyPage({
           />
         </Link>
       ) : null}
-
-      <Footer />
     </Shell>
   );
 }

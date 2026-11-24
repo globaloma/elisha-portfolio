@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <Shell>
+    <Shell footer={<Footer />}>
       <section>
         <Eyebrow>Projects</Eyebrow>
         <div className="mt-4 grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-end">
@@ -64,8 +64,6 @@ export default function ProjectsPage() {
       </section>
 
       <ContactSection />
-
-      <Footer />
     </Shell>
   );
 }

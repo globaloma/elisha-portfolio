@@ -6,6 +6,7 @@ export function Shell({
   className,
   dark,
   hero,
+  footer,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -13,13 +14,15 @@ export function Shell({
   dark?: boolean;
   /** Full-bleed band rendered flush across the whole content area (e.g. the home hero). */
   hero?: React.ReactNode;
+  /** Full-bleed footer rendered flush to the left, right and bottom edges of the content area. */
+  footer?: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[color:var(--background)]">
+    <div className="flex min-h-screen flex-col overflow-x-hidden bg-[color:var(--background)]">
       <Sidebar />
       <main
         className={cn(
-          "min-h-screen lg:pl-[288px]",
+          "flex min-h-screen flex-col lg:pl-[288px]",
           dark && "theme-dark bg-[color:var(--background)] text-foreground",
           className,
         )}
@@ -33,6 +36,7 @@ export function Shell({
         >
           {children}
         </div>
+        {footer && <div className="mt-auto">{footer}</div>}
       </main>
     </div>
   );

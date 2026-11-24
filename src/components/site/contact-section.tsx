@@ -28,7 +28,7 @@ export function ContactSection({ id }: { id?: string }) {
               </>
             );
             const cardClass =
-              "flex items-center gap-4 rounded-2xl bg-[color:var(--card-muted)] px-5 py-4 transition-shadow duration-300 hover:shadow-[0_2px_4px_rgba(27,23,20,0.05),0_16px_32px_-16px_rgba(27,23,20,0.22)]";
+              "flex items-center gap-4 rounded-2xl border border-transparent bg-[color:var(--card-muted)] px-5 py-4 transition-[box-shadow,border-color] duration-300 ease-out hover:border-[rgba(27,23,20,0.14)] hover:shadow-[0_2px_4px_rgba(27,23,20,0.05),0_16px_32px_-16px_rgba(27,23,20,0.22)]";
             return c.href ? (
               <a key={c.label} href={c.href} className={cardClass}>
                 {body}
@@ -72,7 +72,7 @@ export function ContactSection({ id }: { id?: string }) {
           <a
             key={s.label}
             href={s.href}
-            className="inline-flex items-center gap-2 rounded-xl border border-border bg-[color:var(--surface)] px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:border-foreground/20 hover:text-foreground"
+            className="inline-flex items-center gap-2 rounded-xl bg-[color:var(--card-muted)] px-4 py-2.5 text-sm font-medium text-foreground/70 transition-[background-color,color] duration-300 ease-out hover:bg-[color-mix(in_oklab,var(--brand)_16%,var(--card-muted))] hover:text-brand"
           >
             <Icon name={s.icon} className="size-4" />
             {s.label}
