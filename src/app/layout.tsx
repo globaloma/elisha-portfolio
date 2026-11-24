@@ -100,7 +100,7 @@ const jsonLd = {
       image: `${SITE_URL}/opengraph-image`,
       jobTitle: "UI/UX Designer & Mobile App Developer",
       description: DESCRIPTION,
-      email: "mailto:Ibeabuchielisha@gmail.com",
+      email: "mailto:ibeabuchielisha@gmail.com",
       worksFor: { "@type": "Organization", name: "Crib" },
       address: {
         "@type": "PostalAddress",

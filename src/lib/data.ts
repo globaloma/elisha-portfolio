@@ -10,8 +10,8 @@ export const profile = {
     "I believe every app should be beautiful and functional, not one or the other. I combine UI/UX design with mobile development to take your product from first sketch to the App Store or Play Store.",
   phone: "+234 810 513 8217",
   phoneHref: "tel:+2348105138217",
-  email: "Ibeabuchielisha@gmail.com",
-  emailHref: "mailto:Ibeabuchielisha@gmail.com",
+  email: "ibeabuchielisha@gmail.com",
+  emailHref: "mailto:ibeabuchielisha@gmail.com",
   whatsappHref: "https://wa.me/2348105138217",
   location: "Enugu State, Nigeria",
   availability: "24/7 — Always Open",
@@ -179,7 +179,7 @@ export const currentlyBuilding = {
 export const socials = [
   { label: "TikTok", icon: "music-2", href: "https://www.tiktok.com/" },
   { label: "WhatsApp", icon: "message-circle", href: "https://wa.me/2348105138217" },
-  { label: "Email Address", icon: "mail", href: "mailto:Ibeabuchielisha@gmail.com" },
+  { label: "Email Address", icon: "mail", href: "mailto:ibeabuchielisha@gmail.com" },
 ] as const;
 
 export type Project = {
