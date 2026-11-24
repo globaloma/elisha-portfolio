@@ -116,14 +116,14 @@ export default function Home() {
           </div>
 
           {/* stat cards */}
-          <div className="flex gap-3 lg:flex-col">
+          <div className="flex gap-3 lg:flex-col lg:gap-4">
             {stats.map((s) => (
               <div
                 key={s.label}
-                className="flex-1 cursor-default rounded-lg bg-[#17191a] px-4 py-3.5 text-center shadow-sm ring-1 ring-white/5 transition-all duration-300 hover:-translate-y-0.5 hover:ring-[#00e5ff]/60 hover:shadow-[0_0_24px_-4px_rgba(0,229,255,0.5)] lg:w-32 lg:text-left"
+                className="flex-1 cursor-default rounded-xl bg-[#17191a] px-4 py-4 text-center shadow-sm ring-1 ring-white/5 transition-all duration-300 hover:-translate-y-1 hover:ring-[#00e5ff]/60 hover:shadow-[0_0_32px_-4px_rgba(0,229,255,0.55)] sm:py-5 lg:w-48 lg:rounded-2xl lg:px-7 lg:py-7 lg:text-left"
               >
-                <div className="font-heading text-2xl font-bold text-[color:var(--brand-bright)]">{s.value}</div>
-                <div className="mt-1 text-xs text-white/55">{s.label}</div>
+                <div className="font-heading text-3xl font-bold leading-none text-[color:var(--brand-bright)] sm:text-4xl lg:text-6xl">{s.value}</div>
+                <div className="mt-1.5 text-xs font-medium text-white/60 lg:mt-3 lg:text-sm">{s.label}</div>
               </div>
             ))}
           </div>
